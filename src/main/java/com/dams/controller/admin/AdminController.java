@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class AdminController {
-     @RequestMapping("/admin")
-    public String start(){
-        return "redirect:/admin"; // How would it differ if it was forward instead?
-    }
+ 
     
     @RequestMapping("/admin")
     public String welcome(Model model){

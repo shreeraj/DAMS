@@ -23,7 +23,7 @@ public class ClientController {
     
     @RequestMapping("/client")
     public String welcome(Model model){
-        return "client";
+        return "home";
     }
     
 }
