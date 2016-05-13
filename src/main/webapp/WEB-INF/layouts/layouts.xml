@@ -12,5 +12,13 @@
 		<put-attribute name="body" 		value="" />
 		<put-attribute name="footer" 	value="/WEB-INF/jsp/template/footer.jsp" />
 	</definition>
+        <definition name="AdminTemplate" template="/WEB-INF/jsp/admin/adminTemplate.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/jsp/admin/header.jsp" />
+		<put-attribute name="menu" 		value="/WEB-INF/jsp/admin/menu.jsp" />
+<!-- 		<put-attribute name="menu" 		value="/WEB-INF/views/template/menu.jsp" /> -->
+		<put-attribute name="body" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/jsp/admin/footer.jsp" />
+	</definition>
 	
 </tiles-definitions>

@@ -42,6 +42,7 @@
 			<beans:list>
 				<beans:value>/WEB-INF/layouts/layouts.xml</beans:value>
 				<beans:value>/WEB-INF/layouts/views.xml</beans:value>
+                                <beans:value>/WEB-INF/layouts/adminviews.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
