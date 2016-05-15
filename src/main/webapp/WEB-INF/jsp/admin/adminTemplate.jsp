@@ -22,22 +22,22 @@
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-    <link href="<spring:url value='resources/admin/bower_components/bootstrap/dist/css/bootstrap.min.css' />" rel="stylesheet">
+    <link href="<spring:url value='/resources/admin/bower_components/bootstrap/dist/css/bootstrap.min.css' />" rel="stylesheet">
     
     <!-- MetisMenu CSS -->
-    <link href="<spring:url value='resources/admin/bower_components/metisMenu/dist/metisMenu.min.css' />" rel="stylesheet">
+    <link href="<spring:url value='/resources/admin/bower_components/metisMenu/dist/metisMenu.min.css' />" rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href="<spring:url value='resources/admin/dist/css/timeline.css' />" rel="stylesheet">
+    <link href="<spring:url value='/resources/admin/dist/css/timeline.css' />" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<spring:url value='resources/admin/dist/css/sb-admin-2.css' />" rel="stylesheet">
+    <link href="<spring:url value='/resources/admin/dist/css/sb-admin-2.css' />" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="<spring:url value='resources/admin/bower_components/morrisjs/morris.css' />" rel="stylesheet">
+    <link href="<spring:url value='/resources/admin/bower_components/morrisjs/morris.css' />" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<spring:url value='resources/admin/bower_components/font-awesome/css/font-awesome.min.css' />" rel="stylesheet" type="text/css">
+    <link href="<spring:url value='/resources/admin/bower_components/font-awesome/css/font-awesome.min.css' />" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -53,12 +53,7 @@
         </nav>
 
         <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
-                </div>
-                
-            </div>
+           
             <tiles:insertAttribute name="body" />
         </div>
         
@@ -74,21 +69,21 @@
     
     
     <!-- jQuery -->
-    <script src="<spring:url value='resources/admin/bower_components/jquery/dist/jquery.min.js' />"></script>
+    <script src="<spring:url value='/resources/admin/bower_components/jquery/dist/jquery.min.js' />"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<spring:url value='resources/admin/bower_components/bootstrap/dist/js/bootstrap.min.js' />"></script>
+    <script src="<spring:url value='/resources/admin/bower_components/bootstrap/dist/js/bootstrap.min.js' />"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="<spring:url value='resources/admin/bower_components/metisMenu/dist/metisMenu.min.js' />"></script>
+    <script src="<spring:url value='/resources/admin/bower_components/metisMenu/dist/metisMenu.min.js' />"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="<spring:url value='resources/admin/bower_components/raphael/raphael-min.js' />"></script>
-    <script src="<spring:url value='resources/admin/bower_components/morrisjs/morris.min.js' />"></script>
-    <script src="<spring:url value='resources/admin/js/morris-data.js' />"></script>
+    <script src="<spring:url value='/resources/admin/bower_components/raphael/raphael-min.js' />"></script>
+    <script src="<spring:url value='/resources/admin/bower_components/morrisjs/morris.min.js' />"></script>
+    <script src="<spring:url value='/resources/admin/js/morris-data.js' />"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="<spring:url value='resources/admin/dist/js/sb-admin-2.js' />"></script>
+    <script src="<spring:url value='/resources/admin/dist/js/sb-admin-2.js' />"></script>
 
 </body>
 

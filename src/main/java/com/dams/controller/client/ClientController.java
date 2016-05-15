@@ -5,6 +5,12 @@
  */
 package com.dams.controller.client;
 
+import com.dams.domain.Doctor;
+import com.dams.service.DoctorService;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class ClientController {
+   @Resource
+   private DoctorService doctorService;
     
     @RequestMapping("/")
     public String start(){
@@ -23,6 +31,9 @@ public class ClientController {
     
     @RequestMapping("/client")
     public String welcome(Model model){
+      
+        
+       
         return "home";
     }
     
