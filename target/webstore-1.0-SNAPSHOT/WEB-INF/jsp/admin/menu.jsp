@@ -38,6 +38,9 @@
                             <a href="<spring:url value='/admin/doctors' />"><i class="fa fa-table fa-fw"></i> Doctors</a>
                         </li>
                         <li>
+                            <a href="<spring:url value='/admin/specialities' />"><i class="fa fa-table fa-fw"></i> Specialities</a>
+                        </li>
+                        <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Services</a>
                         </li>
                         
