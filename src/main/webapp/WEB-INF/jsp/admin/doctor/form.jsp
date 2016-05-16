@@ -11,13 +11,14 @@
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
-		<spring:url var="postUrl" value='/admin/doctors/add'/>
-		<form:form role="form" modelAttribute="doctorForm" action="${postUrl }">
+		<spring:url var="postUrl" value='/admin/doctors/add' />
+		<form:form role="form" modelAttribute="doctorForm"
+			action="${postUrl }">
 			<div class="box-body">
 				<div class="form-group">
 					<label class="control-label">First Name</label>
 					<form:input path="firstname" class="form-control" />
-					<form:hidden path="doctorId"/>
+					<form:hidden path="doctorId" />
 				</div>
 
 				<div class="form-group">
@@ -29,7 +30,12 @@
 					<label class="control-label">Registration No.</label>
 					<form:input path="registration" class="form-control" />
 				</div>
-
+				<div class="form-group">
+					<label class="control-label">Speciality</label>
+					<form:select path="specialityId" items="${specialities}"
+					class="form-control" 
+						itemValue="specialityId" itemLabel="specialityName" />
+				</div>
 				<div class="form-group">
 					<label class="control-label">Phone</label>
 					<form:input path="phone" class="form-control" />
@@ -48,7 +54,7 @@
 				<div class="form-group">
 					<label class="control-label">Password</label>
 					<form:input path="password" class="form-control" />
-					
+
 
 				</div>
 				<div class="form-actions">

@@ -1,8 +1,10 @@
 package com.dams.controller.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,22 +12,30 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dams.domain.Doctor;
+import com.dams.domain.Speciality;
 import com.dams.service.DoctorService;
+import com.dams.service.SpecialityService;
 
 @Controller
 @RequestMapping("/admin/doctors")
 public class DoctorController {
 	@Resource
 	private DoctorService doctorService;
+	
+	@Resource
+	private SpecialityService specialityService;
+	
+	 @NotNull
+	 private Speciality speciality;
 
 	@RequestMapping
 	public String allDoctors(Model model){
 		List<Doctor> docs = doctorService.getAll();
-		model.addAttribute("doctors",docs);
+			model.addAttribute("doctors",docs);
+	
 		return "allDoctors";
 	}
 	
@@ -33,6 +43,10 @@ public class DoctorController {
 	public String addDoctor(Model model){
 		Doctor doc = new Doctor();
 		model.addAttribute("doctorForm",doc);
+		List<Speciality> specs = new ArrayList<>();
+		specs.add(new Speciality(-1, "Select Speciality"));
+		specs.addAll(specialityService.getAllSpecialities());
+		model.addAttribute("specialities", specs);
 		return "addDoctor";
 	}
 	
@@ -64,5 +78,13 @@ public class DoctorController {
 		doctorService.deleteDoctor(doctor);
 		redirectAttributes.addFlashAttribute("message","Doctor Deleted Successfully");
 		return "redirect:/admin/doctors";
+	}
+
+	public Speciality getSpeciality() {
+		return speciality;
+	}
+
+	public void setSpeciality(Speciality speciality) {
+		this.speciality = speciality;
 	}
 }

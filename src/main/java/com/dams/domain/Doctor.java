@@ -27,13 +27,15 @@ public class Doctor extends Address{
     private String email;
     private String registration;
 
+    private String specialityId;
+    
     public Doctor() {
     }
     
       
     
     public Doctor(String firstname, String lastname, String username, String password, String phone, String dob,
-			String email, String registration) {
+			String email, String registration, String specialityId) {
 		
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -43,6 +45,7 @@ public class Doctor extends Address{
 		this.dob = dob;
 		this.email = email;
 		this.registration = registration;
+		this.specialityId = specialityId;
 	}
 
 
@@ -126,6 +129,18 @@ public class Doctor extends Address{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+	public String getSpecialityId() {
+		return specialityId;
+	}
+
+
+
+	public void setSpecialityId(String specialityId) {
+		this.specialityId = specialityId;
 	}
     
     

@@ -10,5 +10,13 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/home.jsp" />
 	</definition>
 	
+	<definition name="allDoctors" extends="AdminTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/doctors.jsp" />
+	</definition>
+	
+	<definition name="addDoctor" extends="AdminTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/form.jsp" />
+	</definition>
+	
 
 </tiles-definitions>

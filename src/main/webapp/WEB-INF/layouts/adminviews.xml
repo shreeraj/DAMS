@@ -9,14 +9,23 @@
 	<definition name="admin" extends="AdminTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/home.jsp" />
 	</definition>
-	
+
 	<definition name="allDoctors" extends="AdminTemplate">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/doctors.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/doctor/doctors.jsp" />
 	</definition>
-	
+
 	<definition name="addDoctor" extends="AdminTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/form.jsp" />
 	</definition>
-	
 
+	<definition name="addSpeciality" extends="AdminTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/speciality/addSpeciality.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="allSpecialities" extends="AdminTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/speciality/specialities.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>
