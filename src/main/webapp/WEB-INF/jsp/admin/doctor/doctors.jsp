@@ -31,6 +31,7 @@
 						<td>
 							<a href='<spring:url value="/admin/doctors/edit/${doc.doctorId }"/>'><i class="fa fa-pencil"></i></a>
 							<a href="<spring:url value="/admin/doctors/delete/${doc.doctorId }"/>"><i class="fa fa-trash"></i></a>
+							<a href="<spring:url value="/admin/time/${doc.doctorId }"/>"><i class="fa fa-clock-o"></i></a>
 						</td>
 					</tr>
 				</c:forEach>

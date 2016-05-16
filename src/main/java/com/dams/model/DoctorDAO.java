@@ -19,35 +19,35 @@ public class DoctorDAO implements DoctorService{
 	@Autowired
 	private DoctorRepository doctorRepository;
 	
-	@Override
+
 	public List<Doctor> getAll() {
 		return (List<Doctor>) doctorRepository.findAll();
 	}
 
-	@Override
+
 	public void saveDoctor(Doctor doctor) {
 		doctorRepository.save(doctor);
 		
 	}
 
-	@Override
+
 	public Doctor findById(int docId) {
 		return doctorRepository.findOne(docId);
 	}
 
-	@Override
+
 	public void updateDoctor(Doctor doctor) {
 		doctorRepository.save(doctor);
 		
 	}
 
-	@Override
+
 	public void deleteDoctor(Doctor doctor) {
 		doctorRepository.delete(doctor);
 		
 	}
 
-	@Override
+	
 	public Doctor findByFirstname(String firstname) {
 		return doctorRepository.findByFirstname(firstname);
 	}

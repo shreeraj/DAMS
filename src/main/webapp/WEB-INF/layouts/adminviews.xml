@@ -17,6 +17,14 @@
 	<definition name="addDoctor" extends="AdminTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/form.jsp" />
 	</definition>
+
+	<definition name="docTime" extends="AdminTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/doctime.jsp" />
+	</definition>
 	
+	<definition name="timeForm" extends="AdminTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/docTimeForm.jsp" />
+	</definition>
+		
 
 </tiles-definitions>
