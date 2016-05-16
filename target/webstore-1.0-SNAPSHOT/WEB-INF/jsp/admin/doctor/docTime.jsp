@@ -31,7 +31,6 @@
 						<td>${time.end }</td>
 						<td> <a href='<spring:url value="/admin/time/edit/${time.timeId }"/>'><i class="fa fa-pencil"></i></a>
 							<a href="<spring:url value="/admin/time/delete/${time.timeId }"/>"><i class="fa fa-trash"></i></a>
-					</td>
 					</tr>
 				</c:forEach>
 			</tbody>

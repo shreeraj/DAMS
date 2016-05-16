@@ -20,7 +20,7 @@
 	</definition>
 
 	<definition name="docTime" extends="AdminTemplate">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/doctime.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/docTime.jsp" />
 	</definition>
 	
 	<definition name="timeForm" extends="AdminTemplate">

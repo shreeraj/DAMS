@@ -19,12 +19,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
-        <link rel="stylesheet" href="<spring:url value='resources/css/font-awesome.min.css'/>">
-        <link rel="stylesheet" href="<spring:url value='resources/css/bootstrap.min.css'/>">
-        <link rel="stylesheet" href="<spring:url value='resources/css/style.css'/>">
+        <link rel="stylesheet" href="<spring:url value='/resources/css/font-awesome.min.css'/>">
+        <link rel="stylesheet" href="<spring:url value='/resources/css/bootstrap.min.css'/>">
+        <link rel="stylesheet" href="<spring:url value='/resources/css/style.css'/>">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
-        <script src="<spring:url value='resources/js/modernizr.js'/>"></script>
+        <script src="<spring:url value='/resources/js/modernizr.js'/>"></script>
+       
         <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
@@ -47,11 +48,12 @@
 
         <!-- script tags
         ============================================================= -->
-        <script src="<spring:url value='resources/js/jquery-2.1.1.js'/>"></script>
-        <script src="<spring:url value='resources/http://maps.google.com/maps/api/js?sensor=true'/>"></script>
-        <script src="<spring:url value='resources/js/gmaps.js'/>"></script>
-        <script src="<spring:url value='resources/js/smoothscroll.js'/>"></script>
-        <script src="<spring:url value='resources/js/bootstrap.min.js'/>"></script>
-        <script src="<spring:url value='resources/js/custom.js'/>"></script>
+        <script src="<spring:url value='/resources/js/jquery-2.1.1.js'/>"></script>
+        <script src="<spring:url value='http://maps.google.com/maps/api/js?sensor=true'/>"></script>
+        <script src="<spring:url value='/resources/js/gmaps.js'/>"></script>
+        <script src="<spring:url value='/resources/js/smoothscroll.js'/>"></script>
+        <script src="<spring:url value='/resources/js/bootstrap.min.js'/>"> </script>
+        <script src="<spring:url value='/resources/js/jquery.mixitup.min.js'/>"></script>
+        <script src="<spring:url value='/resources/js/custom.js'/>"></script>
     </body>
 </html>
