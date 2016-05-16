@@ -5,13 +5,15 @@
  */
 package com.dams.domain;
 
-import javax.persistence.Entity;
+
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author shreerajkarki
  */
 
+@MappedSuperclass
 public class Address {
     private String street;
     private String city;

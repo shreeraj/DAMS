@@ -25,17 +25,28 @@
 					<label class="control-label">Last Name</label>
 					<form:input path="lastname" class="form-control" />
 				</div>
+				<div class="form-group">
+					<label class="control-label">User Name</label>
+					<form:input path="username" class="form-control" />
+				</div>
 
+				<div class="form-group">
+					<label class="control-label">Password</label>
+					<form:input path="password" class="form-control" type="password" />
+
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Speciality</label>
+					<form:select path="specialityId" items="${specialities}"
+						class="form-control" itemValue="specialityId"
+						itemLabel="specialityName" />
+				</div>
 				<div class="form-group">
 					<label class="control-label">Registration No.</label>
 					<form:input path="registration" class="form-control" />
 				</div>
-				<div class="form-group">
-					<label class="control-label">Speciality</label>
-					<form:select path="specialityId" items="${specialities}"
-					class="form-control" 
-						itemValue="specialityId" itemLabel="specialityName" />
-				</div>
+				<h3 class="box-title">Contact Information</h3>
 				<div class="form-group">
 					<label class="control-label">Phone</label>
 					<form:input path="phone" class="form-control" />
@@ -46,21 +57,35 @@
 					<form:input path="email" class="form-control" />
 				</div>
 
+
+				<h3 class="box-title">Address Information</h3>
 				<div class="form-group">
-					<label class="control-label">User Name</label>
-					<form:input path="username" class="form-control" />
+					<label class="control-label">Street</label>
+					<form:input path="street" class="form-control" />
+
 				</div>
 
 				<div class="form-group">
-					<label class="control-label">Password</label>
-					<form:input path="password" class="form-control" />
-
+					<label class="control-label">City</label>
+					<form:input path="city" class="form-control" />
 
 				</div>
+
+				<div class="form-group">
+					<label class="control-label">State</label>
+					<form:input path="state" class="form-control" />
+
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Zip</label>
+					<form:input path="zip" class="form-control" />
+
+				</div>
+
 				<div class="form-actions">
 					<input type="submit" class="btn btn-primary" value="Submit" />
 				</div>
-
 			</div>
 		</form:form>
 	</div>
