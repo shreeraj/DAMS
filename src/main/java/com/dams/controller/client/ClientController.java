@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ClientController {
    @Resource
    private DoctorService doctorService;
+   
+   
     
     @RequestMapping("/")
     public String start(){
@@ -35,6 +37,14 @@ public class ClientController {
         
        
         return "home";
+    }
+    
+    @RequestMapping("/client/doctors")
+    public String seeDoctors(Model model){
+      
+        model.addAttribute("allDoctors",doctorService.getAll());
+       
+        return "clientDoctors";
     }
     
 }

@@ -2,6 +2,8 @@ jQuery(document).ready(function () {
 
 
     $('#carouselHacked').carousel();
+    
+    $('.mixing').mixItUp();
 
     //this code is for the gmap
     var map = new GMaps({

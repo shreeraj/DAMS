@@ -10,5 +10,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
 	</definition>
 	
+		<definition name="clientDoctors" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/allDoctors.jsp" />
+	</definition>
+	
 
 </tiles-definitions>
