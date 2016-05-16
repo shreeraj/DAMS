@@ -70,51 +70,48 @@
 <section class="about text-center" id="about">
     <div class="container">
         <div class="row">
-            <h2>about us</h2>
-            <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
+            <h2>Our Doctors</h2>
+            <h4>Book An appointment with our world class Doctors.</h4>
             <div class="col-md-4 col-sm-6">
                 <div class="single-about-detail clearfix">
                     <div class="about-img">
                         <img class="img-responsive" src="<spring:url value='resources/img/item1.jpg'/>" alt="">
                     </div>
                     <div class="about-details">
-                        <div class="pentagon-text">
-                            <h1>C</h1>
-                        </div>
-                        <h3>Children’s specialist</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
+                        
+                        <h3><a href="<spring:url value='doctors'/>">Dr. Shree Raj Karki</a></h3>
+                      
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
-                <div class="single-about-detail">
+                <div class="single-about-detail clearfix">
                     <div class="about-img">
-                        <img class="img-responsive" src="<spring:url value='resources/img/item2.jpg'/>" alt="">
+                        <img class="img-responsive" src="<spring:url value='resources/img/item1.jpg'/>" alt="">
                     </div>
                     <div class="about-details">
-                        <div class="pentagon-text">
-                            <h1>W</h1>
-                        </div>
-
-                        <h3>Children’s specialist</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
+                        
+                        <h3><a href="<spring:url value='doctors'/>">Dr. Shree Raj Karki</a></h3>
+                      
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
-                <div class="single-about-detail">
+                <div class="single-about-detail clearfix">
                     <div class="about-img">
-                        <img class="img-responsive" src="<spring:url value='resources/img/item3.jpg'/>" alt="">
+                        <img class="img-responsive" src="<spring:url value='resources/img/item1.jpg'/>" alt="">
                     </div>
                     <div class="about-details">
-                        <div class="pentagon-text">
-                            <h1>M</h1>
-                        </div>
-                        <h3>Children’s specialist</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
+                        
+                        <h3><a href="<spring:url value='doctors'/>">Dr. Shree Raj Karki</a></h3>
+                      
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+            	<h3 class="text-center"><a href="<spring:url value='client/doctors'/>">See All Doctors</a></h3>
+            </div>
+         
         </div>
     </div>
 </section><!-- end of about section -->
@@ -171,77 +168,6 @@
 </section><!-- end of service section -->
 
 
-<!-- team section -->
-<section class="team" id="team">
-    <div class="container">
-        <div class="row">
-            <div class="team-heading text-center">
-                <h2>our team</h2>
-                <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
-            </div>
-            <div class="col-md-2 single-member col-sm-4">
-                <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member1.jpg'/>" alt="member-1">
-                </div>
-                <div class="person-detail">
-                    <div class="arrow-bottom"></div>
-                    <h3>Dr. M. Weiner, M.D.</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-            </div>
-            <div class="col-md-2 single-member col-sm-4">
-                <div class="person-detail">
-                    <div class="arrow-top"></div>
-                    <h3>Dr. Danielle, M.D.</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-                <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member2.jpg'/>" alt="member-2">
-                </div>
-            </div>
-            <div class="col-md-2 single-member col-sm-4">
-                <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member3.jpg'/>" alt="member-3">
-                </div>
-                <div class="person-detail">
-                    <div class="arrow-bottom"></div>
-                    <h3>Dr. Caitlin, M.D.</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-            </div>
-            <div class="col-md-2 single-member col-sm-4">
-                <div class="person-detail">
-                    <div class="arrow-top"></div>
-                    <h3>Dr. Joseph, M.D.</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-                <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member4.jpg'/>" alt="member-4">
-                </div>
-            </div>
-            <div class="col-md-2 single-member col-sm-4">
-                <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member5.jpg'/>" alt="member-5">
-                </div>
-                <div class="person-detail">
-                    <div class="arrow-bottom"></div>
-                    <h3>Dr. Michael, M.D.</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-            </div>
-            <div class="col-md-2 single-member col-sm-4">
-                <div class="person-detail">
-                    <div class="arrow-top"></div>
-                    <h3>Dr. Hasina, M.D.</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-                <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member6.jpg'/>" alt="member-5">
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!-- end of team section -->
 
 <!-- map section -->
 <div class="api-map" id="contact">
