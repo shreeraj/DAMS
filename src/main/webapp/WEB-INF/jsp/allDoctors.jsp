@@ -31,6 +31,7 @@
 			</c:forEach>
 			<ul class="filter-list">
 				<li><span class="filter" data-filter="all">Show All</span></li>
+				
 			</ul>
 			<div class="filter" data-filter="all">Show All</div>
 			<div class="filter" data-filter=".category-1">Category 1</div>
