@@ -8,7 +8,10 @@ package com.dams.controller.client;
 import com.dams.domain.Doctor;
 import com.dams.domain.Patient;
 import com.dams.service.DoctorService;
+
 import com.dams.service.PatientService;
+import com.dams.service.SpecialityService;
+
 
 import javax.annotation.Resource;
 
@@ -28,8 +31,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ClientController {
    @Resource
    private DoctorService doctorService;
+
     @Resource
    private PatientService patientService;
+
+   @Resource
+   private SpecialityService specialityService;
+
    
    
     
@@ -58,12 +66,5 @@ public class ClientController {
 		return "redirect:/client/doctors";
 	}
     
-    @RequestMapping("/client/doctors")
-    public String seeDoctors(Model model){
-      
-        model.addAttribute("allDoctors",doctorService.getAll());
        
-        return "clientDoctors";
-    }
-    
 }

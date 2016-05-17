@@ -31,101 +31,54 @@
 		<div class="row">
 			<h2>Our Doctors</h2>
 			<h4>Book An appointment with our world class Doctors.</h4>
-			<c:forEach items="${allDoctors }" var="doctor">
-
-			</c:forEach>
+	<div class="row col-md-9 col-md-offset-3">
 			<ul class="filter-list">
 				<li><span class="filter" data-filter="all">Show All</span></li>
-				
+				<c:forEach items="${speciality }" var="sp">
+					<li><span class="filter" data-filter=".${sp.specialityId }">
+							${sp.specialityName }</span></li>
+				</c:forEach>
+
+
 			</ul>
-			<div class="filter" data-filter="all">Show All</div>
-			<div class="filter" data-filter=".category-1">Category 1</div>
-			<div class="filter" data-filter=".category-2">Category 2</div>
-			<div class="filter" data-filter=".category-3">Category 3</div>
+	</div>
 			<div class="mixing">
-				<div class="col-md-4 col-sm-6 mix category-1">
-					<div class="single-about-detail clearfix">
-						<div class="about-img">
-							<img class="img-responsive"
-								src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
-						</div>
-						<div class="about-details">
+				<c:forEach items="${allDoctors }" var="doctor">
+					<div class="col-md-4 col-sm-6 mix ${doctor.specialityId }">
+						<div class="single-about-detail clearfix">
+							<div class="about-img">
+								<img class="img-responsive"
+									src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
+							</div>
+							<div class="about-details">
 
-							<h3>
-								<a href="<spring:url value='doctors'/>">Dr. Shree Raj Karki</a>
-							</h3>
+								<h3>
+									<a href="<spring:url value='doctors/doctorDetail/${doctor.doctorId }'/>">Dr. ${doctor.firstname } ${doctor.lastname }</a>
+								</h3>
 
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 mix category-1">
-					<div class="single-about-detail clearfix">
-						<div class="about-img">
-							<img class="img-responsive"
-								src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
-						</div>
-						<div class="about-details">
-
-							<h3>
-								<a href="<spring:url value='doctors'/>">Dr. Rikky</a>
-							</h3>
-
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 mix category-2">
-					<div class="single-about-detail clearfix">
-						<div class="about-img">
-							<img class="img-responsive"
-								src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
-						</div>
-						<div class="about-details">
+				</c:forEach>
 
-							<h3>
-								<a href="<spring:url value='doctors'/>">Dr. Raj </a>
-							</h3>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 mix category-2">
-					<div class="single-about-detail clearfix">
-						<div class="about-img">
-							<img class="img-responsive"
-								src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
-						</div>
-						<div class="about-details">
-
-							<h3>
-								<a href="<spring:url value='doctors'/>">Dr. Shree </a>
-							</h3>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 mix category-3">
-					<div class="single-about-detail clearfix">
-						<div class="about-img">
-							<img class="img-responsive"
-								src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
-						</div>
-						<div class="about-details">
-
-							<h3>
-								<a href="<spring:url value='doctors'/>">Dr. Shree Karki</a>
-							</h3>
-
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
 </section>
 <!-- end of about section -->
 <style>
-.mix{
+.mix {
 	display: none;
+}
+
+.filter-list li{
+	border: 1px solid #ddd;
+    float: left;
+    font-size: 25px;
+    list-style: outside none none;
+    margin: 0 25px 13px 0;
+    padding: 5px;
 }
 </style>
 
