@@ -10,6 +10,6 @@ public interface AppointmentService {
 	
 	public void saveAppointment(Appointment appointment);
 	
-	public boolean checkIfSlotAvailable(int docId, long date, int timeSlotId);
+	public boolean checkIfSlotAvailable(Appointment appointment);
 	
 }

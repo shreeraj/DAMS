@@ -12,16 +12,15 @@ public class Appointment {
 
 	private int docId;
 	private int timeId;
-	private String appDate;
 
+	private long dateTimeStamp;
+	private String appDate;
 	private int patientId;
 
 	public Appointment() {
 
 	}
 	
-	
-
 	public Appointment(int docId, int timeId, String appDate, int patientId, long dateTimeStamp) {
 		
 		this.docId = docId;
@@ -40,7 +39,6 @@ public class Appointment {
 	public void setAppointmentId(int appointmentId) {
 		this.appointmentId = appointmentId;
 	}
-
 	public String getAppDate() {
 		return appDate;
 	}
@@ -48,8 +46,6 @@ public class Appointment {
 	public void setAppDate(String appDate) {
 		this.appDate = appDate;
 	}
-
-	private long dateTimeStamp;
 
 	public long getDateTimeStamp() {
 		return dateTimeStamp;
