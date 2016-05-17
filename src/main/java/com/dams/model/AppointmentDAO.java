@@ -30,12 +30,12 @@ public class AppointmentDAO implements AppointmentService{
 	}
 
 	@Override
-	public boolean checkIfSlotAvailable(int docId, long date, String time) {
+	public boolean checkIfSlotAvailable(int docId, long date, int timeSlotId) {
 		// TODO Auto-generated method stub
-		System.out.println(docId +":" + date + ": " + time + appointmentRepository.getAppointmentsByDocIdDate(docId, date));
+		System.out.println(docId +":" + date + ": " + timeSlotId + appointmentRepository.getAppointmentsByDocIdDate(docId, date));
 		List<Appointment> appointments = getAppointmentsByDocId(docId, date);
 		for(Appointment appointment : appointments){
-			if(appointment.getTime().endsWith(time)){
+			if(appointment.getTimeId()==timeSlotId){
 				return false;
 			}
 		}
