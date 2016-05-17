@@ -61,15 +61,17 @@
 		
 		<div class="row">
 			<div class="col-md-4 col-md-offset-6">
-				<form class="app_form">
+			<spring:url var ="appointmentConfirm" value="client/doctors/processAppointment"/>
+				<form class="app_form" action="${appointmentConfirm}">
 					<div class="form-group">
 						<label class="control-label">Choose Date</label>
-						<input type="text" class="form-control">
+						<input id ="appPicker" name="appDate" type="text" class="form-control ">
+						<input type="hidden" name="docId" value="${doctor.doctorId }">
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label">Available Times</label>
-						<select class="form-control">
+						<select class="form-control" name="timeId">
 							<c:forEach items="${docTimes }" var="docTime">
 								<option value="${docTime.timeId }">${docTime.start } - ${docTime.end }</option>
 							</c:forEach>

@@ -61,7 +61,9 @@
         <script src="<spring:url value='/resources/js/bootstrap-datepicker.js'/>"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-                $('#datepickerDOB').datepicker()
+                $('#datepickerDOB').datepicker();
+             
+              
             })
         </script>
 
