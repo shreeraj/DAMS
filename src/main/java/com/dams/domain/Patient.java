@@ -8,6 +8,7 @@ package com.dams.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,12 +19,16 @@ public class Patient extends Address{
     @Id
     @GeneratedValue
     private int patientId;
+    @NotNull(message= "First Name can not be empty")
     private String firstname;
     private String lastname;
+    @NotNull(message= "Username can not be empty")
     private String username;
+    @NotNull(message= "Password can not be empty")
     private String password;
     private String phone;
     private String dob;
+    @NotNull(message= "Email can not be empty")
     private String email;
 
     public Patient() {

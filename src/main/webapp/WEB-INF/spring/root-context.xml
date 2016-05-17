@@ -30,9 +30,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/dams" />
-
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+
 	</bean>
 
 	<bean id="entityManagerFactory"
@@ -43,8 +43,9 @@
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 		<property name="jpaProperties">
 			<props>
+
 				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 				<prop key="connection.pool.size">1</prop>
 				<prop key="hibernate.show_sql">true</prop>
