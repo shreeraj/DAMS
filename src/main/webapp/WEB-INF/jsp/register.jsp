@@ -11,64 +11,102 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-
-<section class="slider" id="home">
-    <div class="container-fluid">
-        <div class="row">
-            kkkkk
-        </div>
-    </div>
-</section><!-- end of slider section -->
-
+<style type="text/css">
+    #register{
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #f0f0f0;
+        width: 600px;
+        
+    }
+    #register td{
+        padding: 10px;
+    }
+    .error{
+        color: red;
+    }
+    
+</style>
+<div  style="height: 90px !important;"></div>
 <!-- about section -->
 <section class="about text-center" id="about">
     <div class="container">
-        <div class="row">
-            <h2>about us</h2>
-            <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-about-detail clearfix">
-                    <div class="about-img">
-                        <img class="img-responsive" src="<spring:url value='resources/img/item1.jpg'/>" alt="">
-                    </div>
-                    <div class="about-details">
-                        <div class="pentagon-text">
-                            <h1>C</h1>
-                        </div>
-                        <h3>Children’s specialist</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-about-detail">
-                    <div class="about-img">
-                        <img class="img-responsive" src="<spring:url value='resources/img/item2.jpg'/>" alt="">
-                    </div>
-                    <div class="about-details">
-                        <div class="pentagon-text">
-                            <h1>W</h1>
-                        </div>
-
-                        <h3>Children’s specialist</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-about-detail">
-                    <div class="about-img">
-                        <img class="img-responsive" src="<spring:url value='resources/img/item3.jpg'/>" alt="">
-                    </div>
-                    <div class="about-details">
-                        <div class="pentagon-text">
-                            <h1>M</h1>
-                        </div>
-                        <h3>Children’s specialist</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="row" >
+            <div class="service text-center" id="service"></div>
+            <center>
+            <h2>Sign Up  </h2>
+             
+            <spring:url var="postUrl" value='/client/signup' />
+            <form:form  role="form" modelAttribute="patient" action="${postUrl}">
+			<div class="box-body">
+                            <table id="register">
+                                <tr>
+                                    <td><label class="control-label">First Name</label></td>
+                                    <td><form:input path="firstname" class="form-control" />
+					<form:hidden path="patientId" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">Last Name:</label></td>
+                                    <td><form:input path="lastname" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">Username:</label></td>
+                                    <td><form:input path="username" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">Password:</label></td>
+                                    <td><form:input path="password" class="form-control" type="password" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">Retype Password:</label></td>
+                                    <td><input  class="form-control" type="password" /></td>
+                                </tr>
+                                <tr>
+                                <script type="text/javascript">
+                                   
+                                </script>
+                                    <td><label class="control-label">DOB:</label></td>
+                                    <td><form:input  id="datepickerDOB" path="dob" class="form-control"  /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">Phone:</label></td>
+                                    <td><form:input path="phone" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">Email:</label></td>
+                                    <td><form:errors path="email" cssClass="error" />
+                                        <form:input id="email" path="email" class="form-control" />
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label class="control-label">Street</label></td>
+                                    <td><form:input path="street" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">City</label></td>
+                                    <td><form:input path="city" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">State</label></td>
+                                    <td><form:input path="state" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="control-label">ZIP</label></td>
+                                    <td><form:input path="zip" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input style="font-size: 18px" type="submit" class="btn btn-primary" value="Submit" />
+                                        <a style="font-size: 18px" class="btn btn-default">Cancel</a>
+                                    </td>
+                                </tr>
+                            </table>
+			
+			</div>
+		</form:form>          
+            </center>
         </div>
     </div>
 </section><!-- end of about section -->
@@ -84,7 +122,7 @@
                 <div class="single-service">
                     <div class="single-service-img">
                         <div class="service-img">
-                            <img class="heart img-responsive" src="<spring:url value='resources/img/service1.png'/>" alt="">
+                            <img class="heart img-responsive" src="<spring:url value='/resources/img/service1.png'/>" alt="">
                         </div>
                     </div>
                     <h3>Heart problem</h3>
@@ -94,7 +132,7 @@
                 <div class="single-service">
                     <div class="single-service-img">
                         <div class="service-img">
-                            <img class="brain img-responsive" src="<spring:url value='resources/img/service2.png'/>" alt="">
+                            <img class="brain img-responsive" src="<spring:url value='/resources/img/service2.png'/>" alt="">
                         </div>
                     </div>
                     <h3>brain problem</h3>
@@ -104,7 +142,7 @@
                 <div class="single-service">
                     <div class="single-service-img">
                         <div class="service-img">
-                            <img class="knee img-responsive" src="<spring:url value='resources/img/service3.png'/>" alt="">
+                            <img class="knee img-responsive" src="<spring:url value='/resources/img/service3.png'/>" alt="">
                         </div>
                     </div>
                     <h3>knee problem</h3>
@@ -114,7 +152,7 @@
                 <div class="single-service">
                     <div class="single-service-img">
                         <div class="service-img">
-                            <img class="bone img-responsive" src="<spring:url value='resources/img/service4.png'/>" alt="">
+                            <img class="bone img-responsive" src="<spring:url value='/resources/img/service4.png'/>" alt="">
                         </div>
                     </div>
                     <h3>human bones problem</h3>
@@ -135,7 +173,7 @@
             </div>
             <div class="col-md-2 single-member col-sm-4">
                 <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member1.jpg'/>" alt="member-1">
+                    <img class="img-responsive" src="<spring:url value='/resources/img/member1.jpg'/>" alt="member-1">
                 </div>
                 <div class="person-detail">
                     <div class="arrow-bottom"></div>
@@ -150,12 +188,12 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                 </div>
                 <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member2.jpg'/>" alt="member-2">
+                    <img class="img-responsive" src="<spring:url value='/resources/img/member2.jpg'/>" alt="member-2">
                 </div>
             </div>
             <div class="col-md-2 single-member col-sm-4">
                 <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member3.jpg'/>" alt="member-3">
+                    <img class="img-responsive" src="<spring:url value='/resources/img/member3.jpg'/>" alt="member-3">
                 </div>
                 <div class="person-detail">
                     <div class="arrow-bottom"></div>
@@ -170,12 +208,12 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                 </div>
                 <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member4.jpg'/>" alt="member-4">
+                    <img class="img-responsive" src="<spring:url value='/resources/img/member4.jpg'/>" alt="member-4">
                 </div>
             </div>
             <div class="col-md-2 single-member col-sm-4">
                 <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member5.jpg'/>" alt="member-5">
+                    <img class="img-responsive" src="<spring:url value='/resources/img/member5.jpg'/>" alt="member-5">
                 </div>
                 <div class="person-detail">
                     <div class="arrow-bottom"></div>
@@ -190,7 +228,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                 </div>
                 <div class="person">
-                    <img class="img-responsive" src="<spring:url value='resources/img/member6.jpg'/>" alt="member-5">
+                    <img class="img-responsive" src="<spring:url value='/resources/img/member6.jpg'/>" alt="member-5">
                 </div>
             </div>
         </div>
@@ -239,5 +277,4 @@
         </div>
     </div>
 </section><!-- end of contact section -->
-
 
