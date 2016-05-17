@@ -20,7 +20,7 @@ public class AppointmentController {
 	
 	@RequestMapping
 	public String saveAppointment(@ModelAttribute("appointmentForm") Appointment appointment, RedirectAttributes redirectAttributes){
-		if(appointmentService.checkIfSlotAvailable(appointment.getDocId(),appointment.getDateTimeStamp(), appointment.getTime())){
+		if(appointmentService.checkIfSlotAvailable(appointment.getDocId(),appointment.getDateTimeStamp(), appointment.getTimeId())){
 			redirectAttributes.addFlashAttribute("message","Thank you! Your appointment time is fixed.");
 		}else{
 			redirectAttributes.addFlashAttribute("message","Sorry, the time is already taken, please choose another available time");
