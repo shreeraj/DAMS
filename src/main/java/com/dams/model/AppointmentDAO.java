@@ -32,7 +32,7 @@ public class AppointmentDAO implements AppointmentService{
 	@Override
 	public boolean checkIfSlotAvailable(Appointment appointment) {
 		// TODO Auto-generated method stub
-		System.out.println(appointment.getDocId() +":" + appointment.getTime() + ": " + appointment.getTimeId() + appointmentRepository.getAppointmentsByDocIdDate(appointment.getDocId(), appointment.getDateTimeStamp()));
+		System.out.println(appointment.getDocId() +":" + appointment.getAppDate() + ": " + appointment.getTimeId() + appointmentRepository.getAppointmentsByDocIdDate(appointment.getDocId(), appointment.getDateTimeStamp()));
 		List<Appointment> appointments = getAppointmentsByDocId(appointment.getDocId(), appointment.getDateTimeStamp());
 		for(Appointment temp : appointments){
 			if(temp.getTimeId()==appointment.getTimeId()){

@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dams.domain.Appointment;
+
 import com.dams.domain.DocTime;
 import com.dams.domain.Doctor;
 import com.dams.service.DoctorService;
@@ -43,6 +45,13 @@ public class ClientDoctorController {
 		model.addAttribute("docTimes",docTimes);
 		return "doctorDetail";
 	}
+	
+	@RequestMapping(value="processAppointment")
+	public String processAppointment(Appointment appointment, Model model){
+		
+		return "doctorDetail";
+	}
+	
 	
 
 }
