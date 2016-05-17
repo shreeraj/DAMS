@@ -43,12 +43,13 @@ public class ClientDoctorController {
 		List<DocTime> docTimes = timeService.getTimeByDoctorId(doctorId);
 		model.addAttribute("doctor",doc);
 		model.addAttribute("docTimes",docTimes);
+		model.addAttribute("appointmentForm", new Appointment());
 		return "doctorDetail";
 	}
 	
 	@RequestMapping(value="processAppointment")
 	public String processAppointment(Appointment appointment, Model model){
-		
+		System.out.println(appointment.getDocId());
 		return "doctorDetail";
 	}
 	
