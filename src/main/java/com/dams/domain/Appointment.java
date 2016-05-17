@@ -13,6 +13,7 @@ public class Appointment {
 	private int docId;
 	private int timeId;
 	private String time;
+	private long dateTimeStamp;
 	
 	private int patientId;
 	
@@ -22,8 +23,6 @@ public class Appointment {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	private long dateTimeStamp;
-	
 	
 	public long getDateTimeStamp() {
 		return dateTimeStamp;

@@ -1,5 +1,8 @@
 package com.dams.controller.admin;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -20,11 +23,21 @@ public class AppointmentController {
 	
 	@RequestMapping
 	public String saveAppointment(@ModelAttribute("appointmentForm") Appointment appointment, RedirectAttributes redirectAttributes){
-		if(appointmentService.checkIfSlotAvailable(appointment.getDocId(),appointment.getDateTimeStamp(), appointment.getTimeId())){
-			redirectAttributes.addFlashAttribute("message","Thank you! Your appointment time is fixed.");
-		}else{
-			redirectAttributes.addFlashAttribute("message","Sorry, the time is already taken, please choose another available time");
+		String date = appointment.getTime();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			java.util.Date dd = dateFormat.parse(date);
+			appointment.setDateTimeStamp(dd.getTime());
+			if(appointmentService.checkIfSlotAvailable(appointment)){
+				redirectAttributes.addFlashAttribute("message","Thank you! Your appointment time is fixed.");
+			}else{
+				redirectAttributes.addFlashAttribute("message","Sorry, the time is already taken, please choose another available time");
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 		return "appointment";
 	}
 	
