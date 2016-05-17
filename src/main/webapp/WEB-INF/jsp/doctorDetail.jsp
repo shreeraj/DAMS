@@ -62,23 +62,24 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-6">
 			<spring:url var ="appointmentConfirm" value="client/doctors/processAppointment"/>
-				<form class="app_form" action="${appointmentConfirm}">
+				<form:form class="app_form" modelAttribute="appointmentForm" action="${appointmentConfirm}">
 					<div class="form-group">
 						<label class="control-label">Choose Date</label>
-						<input id ="appPicker" name="appDate" type="text" class="form-control ">
-						<input type="hidden" name="docId" value="${doctor.doctorId }">
+						<form:input id ="appPicker" path="appDate" type="text" class="form-control "/>
+						<form:hidden path="docId" value="${doctor.doctorId }"/>
+						<form:hidden type="hidden" path="patientId" value="1"/>
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label">Available Times</label>
-						<select class="form-control" name="timeId">
+						<form:select class="form-control" path="timeId">
 							<c:forEach items="${docTimes }" var="docTime">
-								<option value="${docTime.timeId }">${docTime.start } - ${docTime.end }</option>
+								<form:option value="${docTime.timeId }">${docTime.start } - ${docTime.end }</form:option>
 							</c:forEach>
-						</select>
+						</form:select>
 					</div>
 					<input type="submit" value="Confirm" class="btn btn-danger"/>
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>
