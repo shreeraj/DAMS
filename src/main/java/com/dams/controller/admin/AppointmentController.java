@@ -24,7 +24,7 @@ public class AppointmentController {
 	@RequestMapping
 	public String saveAppointment(@ModelAttribute("appointmentForm") Appointment appointment, RedirectAttributes redirectAttributes){
 		String date = appointment.getAppDate();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		try {
 			java.util.Date dd = dateFormat.parse(date);
 			appointment.setDateTimeStamp(dd.getTime());
