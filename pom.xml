@@ -208,9 +208,15 @@
 			<version>1.3.1</version>
 		</dependency>
                 <dependency>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                    <version>1.1.0.Final</version>
+                        <type>jar</type>
+                </dependency>
+                <dependency>
                     <groupId>org.hibernate</groupId>
                     <artifactId>hibernate-validator</artifactId>
-                    <version>4.3.2.Final</version>
+                    <version>5.2.4.Final</version>
                 </dependency>
 		<!-- Apache Commons IO -->
 
@@ -253,11 +259,7 @@
 
 		<!-- validation -->
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.1.2.Final</version>
-		</dependency>
+		
 
 
 		<!-- start: AspectJ dependencies -->

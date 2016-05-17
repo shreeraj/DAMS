@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.validation.constraints.NotNull;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +28,7 @@ public class DoctorController {
 	@Resource
 	private SpecialityService specialityService;
 	
-	 @NotNull
+	 //@NotNull
 	 private Speciality speciality;
 
 	@RequestMapping

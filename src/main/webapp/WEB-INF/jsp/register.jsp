@@ -27,11 +27,12 @@
     }
     
 </style>
-<div style="height: 90px !important;"></div>
+<div  style="height: 90px !important;"></div>
 <!-- about section -->
 <section class="about text-center" id="about">
     <div class="container">
         <div class="row" >
+            <div class="service text-center" id="service"></div>
             <center>
             <h2>Sign Up  </h2>
              
