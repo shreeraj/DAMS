@@ -9,10 +9,14 @@
 	<definition name="home" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
 	</definition>
-	
-		<definition name="clientDoctors" extends="DefaultTemplate">
+
+	<definition name="clientDoctors" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/allDoctors.jsp" />
 	</definition>
 	
+	<definition name="doctorDetail" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/doctorDetail.jsp" />
+	</definition>
+
 
 </tiles-definitions>
