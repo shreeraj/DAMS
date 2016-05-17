@@ -26,7 +26,7 @@ public class TimeController {
 	private TimeService timeService;
 
 	@RequestMapping(value = "admin/time/{doctorId}")
-	public String editDoctor(@PathVariable int doctorId, Model model) {
+	public String docTimes(@PathVariable int doctorId, Model model) {
 
 		Doctor doc = doctorService.findById(doctorId);
 		List<DocTime> docTimes = timeService.getTimeByDoctorId(doctorId);
