@@ -21,6 +21,9 @@
 		<div class="header-backup"></div>
 	</div>
 </section>
+<section>
+    <div>${message}</div>
+</section>
 <section class="about text-center" id="about">
 	<div class="container ">
 		<div class="row">

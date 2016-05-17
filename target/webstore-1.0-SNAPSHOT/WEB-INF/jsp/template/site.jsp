@@ -22,10 +22,13 @@
         <link rel="stylesheet" href="<spring:url value='/resources/css/font-awesome.min.css'/>">
         <link rel="stylesheet" href="<spring:url value='/resources/css/bootstrap.min.css'/>">
         <link rel="stylesheet" href="<spring:url value='/resources/css/style.css'/>">
+        <link rel="stylesheet" href="<spring:url value='/resources/css/datepicker.css'/>">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
         <script src="<spring:url value='/resources/js/modernizr.js'/>"></script>
        
+
+
         <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
@@ -55,5 +58,12 @@
         <script src="<spring:url value='/resources/js/bootstrap.min.js'/>"> </script>
         <script src="<spring:url value='/resources/js/jquery.mixitup.min.js'/>"></script>
         <script src="<spring:url value='/resources/js/custom.js'/>"></script>
+        <script src="<spring:url value='/resources/js/bootstrap-datepicker.js'/>"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#datepickerDOB').datepicker()
+            })
+        </script>
+
     </body>
 </html>
