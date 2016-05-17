@@ -30,8 +30,13 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/dams" />
+<<<<<<< HEAD
+		<property name="username" value="newuser" />
+		<property name="password" value="password" />
+=======
 		<property name="username" value="root" />
 		<property name="password" value="" />
+>>>>>>> 256860e419052b09fcb890c8d4931b5639be4d50
 	</bean>
 
 	<bean id="entityManagerFactory"

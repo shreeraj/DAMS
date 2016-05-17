@@ -24,7 +24,7 @@
                         <div class="carousel-caption">
                             <h1>providing</h1>
                             <p>highquality service for men &amp; women</p>
-                            <button>learn more</button>
+                            <button data-toggle="modal" data-target="#myModal">Sign Up</button>
                         </div>
                     </div>
                     <div class="item">
@@ -211,3 +211,5 @@
         </div>
     </div>
 </section><!-- end of contact section -->
+
+
