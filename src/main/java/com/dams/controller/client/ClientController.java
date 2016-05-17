@@ -38,6 +38,11 @@ public class ClientController {
        
         return "home";
     }
+    @RequestMapping("/client/signup")
+    public String register(Model model){
+    
+        return "signup";
+    }
     
     @RequestMapping("/client/doctors")
     public String seeDoctors(Model model){

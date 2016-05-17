@@ -43,7 +43,7 @@ public class DoctorController {
 	public String addDoctor(Model model){
 		Doctor doc = new Doctor();
 		model.addAttribute("doctorForm",doc);
-		List<Speciality> specs = new ArrayList<>();
+		List<Speciality> specs = new ArrayList<Speciality>();
 		specs.add(new Speciality(-1, "Select Speciality"));
 		specs.addAll(specialityService.getAllSpecialities());
 		model.addAttribute("specialities", specs);
@@ -59,7 +59,6 @@ public class DoctorController {
 		}
 		
 		doctorService.saveDoctor(doctor);
-		
 		
 		return "redirect:/admin/doctors";
 	}
