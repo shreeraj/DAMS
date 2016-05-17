@@ -61,13 +61,13 @@
 		
 		<div class="row">
 			<div class="col-md-4 col-md-offset-6">
-			<spring:url var ="appointmentConfirm" value="client/doctors/processAppointment"/>
+			<spring:url var ="appointmentConfirm" value="/client/doctors/processAppointment"/>
 				<form:form class="app_form" modelAttribute="appointmentForm" action="${appointmentConfirm}">
 					<div class="form-group">
 						<label class="control-label">Choose Date</label>
 						<form:input id ="appPicker" path="appDate" type="text" class="form-control "/>
 						<form:hidden path="docId" value="${doctor.doctorId }"/>
-						<form:hidden type="hidden" path="patientId" value="1"/>
+						<form:hidden path="patientId" value="1"/>
 					</div>
 					
 					<div class="form-group">
