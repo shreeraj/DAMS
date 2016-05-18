@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- <definition name="home" extends="DefaultTemplate"> <put-attribute name="body" 
+		value="/WEB-INF/views/home.jsp" /> </definition> -->
+	<definition name="doctorDashboard" extends="DoctorDashboardTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/doctor/home.jsp" />
+	</definition>
+	<definition name="doctorAppointments" extends="DoctorDashboardTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/doctor/appointments.jsp" />
+	</definition>
+	<definition name="doctorEditProfile" extends="DoctorDashboardTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/doctor/form.jsp" />
+	</definition>
+	
+</tiles-definitions>

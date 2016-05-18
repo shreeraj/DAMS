@@ -17,9 +17,9 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
+                        </li> -->
                         <!--
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -35,22 +35,14 @@
                         </li>
                         -->
                         <li>
-                            <a href="<spring:url value='/admin/doctors' />"><i class="fa fa-table fa-fw"></i> Doctors</a>
+                            <a href="<spring:url value='/doctor/profile?id=${doctor.doctorId}' />"><i class="fa fa-table fa-fw"></i> Profile
+                            
+                            </a>
                         </li>
                         <li>
-                            <a href="<spring:url value='/admin/specialities' />"><i class="fa fa-table fa-fw"></i> Specialities</a>
+                            <a href="<spring:url value='/doctor/appointments?id=${doctor.doctorId}' />"><i class="fa fa-table fa-fw"></i> Appointments</a>
                         </li>
-                        <li>
-                            <a href="<spring:url value='/admin/sliders' />"><i class="fa fa-list fa-fw"></i> Banner</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Services</a>
-                        </li>
-                        
-                        <li>
-                            <a href="forms.html"><i class="fa fa-envelope fa-fw"></i> Customer Support</a>
-                        </li>
-                       
+                                            
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

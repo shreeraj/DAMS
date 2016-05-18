@@ -36,4 +36,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/speciality/specialities.jsp"></put-attribute>
 	</definition>
+        
+        
+        <definition name="allSliders" extends="AdminTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/slider/sliders.jsp" />
+	</definition>
+
+	<definition name="addSlider" extends="AdminTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/slider/form.jsp" />
+	</definition>
+        
+        
 </tiles-definitions>

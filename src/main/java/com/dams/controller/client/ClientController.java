@@ -5,8 +5,10 @@
  */
 package com.dams.controller.client;
 
+import com.dams.domain.Contact;
 import com.dams.domain.Doctor;
 import com.dams.domain.Patient;
+import com.dams.service.ContactService;
 import com.dams.service.DoctorService;
 
 import com.dams.service.PatientService;
@@ -14,13 +16,17 @@ import com.dams.service.SpecialityService;
 
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -37,6 +43,8 @@ public class ClientController {
 
    @Resource
    private SpecialityService specialityService;
+   @Resource
+   private ContactService contactService;
 
    
    
@@ -47,8 +55,9 @@ public class ClientController {
     }
     
     @RequestMapping("/client")
-    public String welcome(Model model){
-      
+    public String welcome(@ModelAttribute("contact") Contact contact, Model model){
+        //Contact conn = new Contact(contact);
+        //contactService.saveContact(conn);
         
        
         return "home";
@@ -66,5 +75,12 @@ public class ClientController {
 		return "redirect:/client/doctors";
 	}
     
-       
+     
+        
+        @RequestMapping(value = "/client/contactus", method = RequestMethod.POST)
+        public @ResponseBody String postContactMsg(@RequestBody Contact contact, HttpServletRequest request) {	
+		contactService.saveContact(contact);
+                System.out.println(contact);
+                return "success";
+	}	
 }

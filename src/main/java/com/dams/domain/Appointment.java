@@ -16,6 +16,19 @@ public class Appointment {
 	private long dateTimeStamp;
 	private String appDate;
 	private int patientId;
+	
+	private int isCompleted;
+
+//	private DocTime docTime;
+//	private Patient patient;
+	
+	public int getIsCompleted() {
+		return isCompleted;
+	}
+
+	public void setIsCompleted(int isCompleted) {
+		this.isCompleted = isCompleted;
+	}
 
 	public Appointment() {
 
@@ -78,5 +91,21 @@ public class Appointment {
 	public void setPatientId(int patientId) {
 		this.patientId = patientId;
 	}
+
+//	public DocTime getDocTime() {
+//		return docTime;
+//	}
+//
+//	public void setDocTime(DocTime docTime) {
+//		this.docTime = docTime;
+//	}
+//
+//	public Patient getPatient() {
+//		return patient;
+//	}
+//
+//	public void setPatient(Patient patient) {
+//		this.patient = patient;
+//	}
 
 }

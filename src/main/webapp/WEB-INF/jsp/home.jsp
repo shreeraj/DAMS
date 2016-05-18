@@ -198,14 +198,15 @@
                 </div>
                 <div class="col-md-6 col-md-offset-1 contact-form">
                     <h3>leave us a message</h3>
-
-                    <form class="form">
-                        <input class="name" type="text" placeholder="Name">
-                        <input class="email" type="email" placeholder="Email">
-                        <input class="phone" type="text" placeholder="Phone No:">
-                        <textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                        <input class="submit-btn" type="submit" value="SUBMIT">
-                    </form>
+                    <div id="contactForm">
+                    <form:form class="form" commandName="contact" id="submitForm">
+                        <form:input  path="name" id="name" class="name" type="text" placeholder="Name" />
+                        <form:input path="email" id="email" class="email" type="email" placeholder="Email" />
+                        <form:input class="phone" id="phone" path="phone" type="text" placeholder="Phone No:" />
+                            <form:textarea path="message"  class="message" name="message" id="message" cols="30" rows="10" placeholder="Message" />
+                            <input class="submit-btn" type="button" id="submitId" value="SUBMIT" />
+                    </form:form>
+                    </div>
                 </div>
             </div>
         </div>
