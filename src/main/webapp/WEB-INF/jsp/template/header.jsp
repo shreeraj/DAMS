@@ -9,6 +9,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<<<<<<< HEAD
 <div class="container">
 	<div class="row">
 		<div class="col-xs-5 header-logo">
@@ -16,6 +17,14 @@
 				src="<spring:url value='/resources/img/logo.png'/>" alt=""
 				class="img-responsive logo"></a>
 		</div>
+=======
+ <div class="container">
+                <div class="row">
+                    <div class="col-xs-5 header-logo">
+                        <br>
+                        <a href="<spring:url value='/client' />"><img src="<spring:url value='/resources/img/logo.png'/>" alt="" class="img-responsive logo"></a>
+                    </div>
+>>>>>>> 5478d37f3bfeecf6ed46da5b6b121a382bccd180
 
 		<div class="col-md-7">
 			<nav class="navbar navbar-default">
@@ -35,6 +44,7 @@
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 
+<<<<<<< HEAD
 						<ul class="nav navbar-nav navbar-right">
 							<li><a class="menu active"
 								href="<spring:url value='/client'/> ">Home</a></li>
@@ -71,3 +81,19 @@
 		</div>
 	</div>
 </div>
+=======
+                                    <ul class="nav navbar-nav navbar-right">
+
+                                        <li><a class="menu active" href="<spring:url value='/client' />" >Home</a></li>
+                                        <li><a class="menu" href="<spring:url value='/client/doctors'/>">our team </a></li>
+                                        
+                                        <li><a class="menu" href="#contact"> contact us</a></li>
+                                        <li><a class="menu" href="<spring:url value='/client/signup' />"> Sign Up</a></li>
+                                    </ul>
+                                </div><!-- /navbar-collapse -->
+                            </div><!-- / .container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+>>>>>>> 5478d37f3bfeecf6ed46da5b6b121a382bccd180

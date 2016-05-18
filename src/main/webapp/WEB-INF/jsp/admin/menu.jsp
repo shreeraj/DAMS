@@ -43,12 +43,13 @@
                         <li>
                             <a href="<spring:url value='/admin/sliders' />"><i class="fa fa-list fa-fw"></i> Banner</a>
                         </li>
+                        <!--
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Services</a>
                         </li>
-                        
+                        -->
                         <li>
-                            <a href="forms.html"><i class="fa fa-envelope fa-fw"></i> Customer Support</a>
+                            <a href="<spring:url value='/admin/inquiries' />"><i class="fa fa-envelope fa-fw"></i> Customer Inquiries</a>
                         </li>
                        
                     </ul>

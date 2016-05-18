@@ -46,6 +46,9 @@
 	<definition name="addSlider" extends="AdminTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/slider/form.jsp" />
 	</definition>
+        <definition name="inquiries" extends="AdminTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/allInquiries.jsp" />
+	</definition>
         
         
 </tiles-definitions>

@@ -128,7 +128,7 @@ public class DoctorDashboardController {
 		appointmentService.saveAppointment(appointment);
 		System.out.println(doctor.getDoctorId());
 		List<Appointment> appointments = appointmentService.getAppointmentsByDocId(doctor.getDoctorId(), 0);
-		List<AppointmentHelperBean> appointmentHelpersList = new ArrayList<>();
+		List<AppointmentHelperBean> appointmentHelpersList = new ArrayList<AppointmentHelperBean>();
 		for (Appointment app : appointments) {
 			AppointmentHelperBean helperBean = new AppointmentHelperBean();
 			helperBean.setAppointment(app);

@@ -36,6 +36,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 public class ClientController {
+
 	@Resource
 	private DoctorService doctorService;
 
@@ -73,6 +74,8 @@ public class ClientController {
 
 	@RequestMapping(value = "/client/signup", method = RequestMethod.POST)
 	public String processRegister(@ModelAttribute("patient") Patient patient, RedirectAttributes redirectAttributes) {
+
+  
 		patientService.savePatient(patient);
 		redirectAttributes.addFlashAttribute("message", "Registered Successfully");
 		return "redirect:/client/doctors";
@@ -81,6 +84,7 @@ public class ClientController {
 	@RequestMapping(value = "/client/contactus", method = RequestMethod.POST)
 	public @ResponseBody String postContactMsg(@RequestBody Contact contact, HttpServletRequest request) {
 		contactService.saveContact(contact);
+
 		System.out.println(contact);
 		return "success";
 	}

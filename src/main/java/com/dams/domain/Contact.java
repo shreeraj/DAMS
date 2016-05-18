@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -24,7 +25,8 @@ public class Contact{
     private String email;
     private String phone;
     private String message;
-
+    private int replied=0;
+    private String replyMessage;
     public Contact() {
     }
 
@@ -33,6 +35,23 @@ public class Contact{
         this.email = email;
         this.phone = phone;
         this.message = message;
+    }
+
+    public int getReplied() {
+        return replied;
+    }
+
+    public String getReplyMessage() {
+        return replyMessage;
+    }
+
+    public void setReplyMessage(String replyMessage) {
+        this.replyMessage = replyMessage;
+    }
+    
+    
+    public void setReplied(int replied) {
+        this.replied = replied;
     }
     
     
