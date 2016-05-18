@@ -46,6 +46,16 @@ public class AppointmentDAO implements AppointmentService {
 	}
 
 	/* (non-Javadoc)
+	 * @see com.dams.service.AppointmentService#getAppointmentById(int)
+	 */
+	@Override
+	public Appointment getAppointmentById(int appointmentId) {
+		// TODO Auto-generated method stub
+		
+		return appointmentRepository.findOne(appointmentId);
+	}
+
+	/* (non-Javadoc)
 	 * @see com.dams.service.AppointmentService#getAppointmentsByDocId(int)
 	 */
 //	@Override

@@ -16,10 +16,20 @@ public class Appointment {
 	private long dateTimeStamp;
 	private String appDate;
 	private int patientId;
+	
+	private int isCompleted;
 
 //	private DocTime docTime;
 //	private Patient patient;
 	
+	public int getIsCompleted() {
+		return isCompleted;
+	}
+
+	public void setIsCompleted(int isCompleted) {
+		this.isCompleted = isCompleted;
+	}
+
 	public Appointment() {
 
 	}
