@@ -29,6 +29,8 @@ public class AppointmentController {
 			java.util.Date dd = dateFormat.parse(date);
 			appointment.setDateTimeStamp(dd.getTime());
 			if(appointmentService.checkIfSlotAvailable(appointment)){
+				//changed by ajit, if used else where remove from there or convertdatetimestamp as this one wherever used
+				appointmentService.saveAppointment(appointment);
 				redirectAttributes.addFlashAttribute("message","Thank you! Your appointment time is fixed.");
 			}else{
 				redirectAttributes.addFlashAttribute("message","Sorry, the time is already taken, please choose another available time");

@@ -42,5 +42,10 @@ public class AppointmentDAO implements AppointmentService{
 		return true;
 	}
 
+	@Override
+	public Appointment getAppointById(int id) {
+		return appointmentRepository.findOne(id);
+	}
+
 	
 }

@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-6 footer-para">
-            <p>&copy;Mostafizur All right reserved</p>
+            <p>&copy;DAMS, All Rights Reserved</p>
         </div>
         <div class="col-xs-6 text-right">
             <a href=""><i class="fa fa-facebook"></i></a>
