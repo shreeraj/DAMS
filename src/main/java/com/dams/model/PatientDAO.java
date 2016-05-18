@@ -53,4 +53,9 @@ public class PatientDAO implements PatientService{
 		return patientRepository.findByFirstname(firstname);
 	}
 
+	@Override
+	public Patient findByUsername(String username) {
+		return patientRepository.findByUsername(username);
+	}
+
 }

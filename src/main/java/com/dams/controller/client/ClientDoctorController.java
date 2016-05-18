@@ -80,7 +80,7 @@ public class ClientDoctorController {
 	
 	@RequestMapping(value="successAppointment/{appointmentId}")
 	public String successAppointment(@PathVariable int appointmentId, Model model){
-		Appointment appointment = appointmentService.getAppointById(appointmentId);
+		Appointment appointment = appointmentService.getAppointmentById(appointmentId);
 		Doctor doc = doctorService.findById(appointment.getDocId());
 		DocTime docTime = timeService.getTimeById(appointment.getTimeId());
 		model.addAttribute("appointment",appointment);

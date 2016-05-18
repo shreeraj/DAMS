@@ -12,12 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dams.domain.Doctor;
 import com.dams.domain.Patient;
 
-
-
 @Repository
-@Transactional(readOnly = true) 
-public interface PatientRepository extends CrudRepository<Patient, Integer>{
-	//If we want custom CRUD Services then we define here......raj
-        @Query("from Patient d where d.firstname = :firstname")
+@Transactional(readOnly = true)
+public interface PatientRepository extends CrudRepository<Patient, Integer> {
+	// If we want custom CRUD Services then we define here......raj
+	@Query("from Patient d where d.firstname = :firstname")
 	public Patient findByFirstname(@Param("firstname") String firstname);
+	
+	@Query("from Patient d where d.username = :username")
+	public Patient findByUsername(@Param("username") String username);
 }
