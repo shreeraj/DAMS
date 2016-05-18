@@ -5,18 +5,18 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dams.domain.Doctor;
@@ -46,22 +46,24 @@ public class DoctorController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveDoctor(@ModelAttribute("doctorForm") Doctor doctor, HttpServletRequest request,
-			@RequestParam(value = "imgData", required = false) MultipartFile image){
-		/*		if(doctor.getDoctorId()==0){
+	public String saveDoctor(@Valid @ModelAttribute("doctorForm")  Doctor doctor, BindingResult result, 
+			@RequestParam(value = "imgData", required = false) MultipartFile image,
+			HttpServletRequest request){
+		 
+		/* if(doctor.getDoctorId()==0){
 			redirectAttributes.addFlashAttribute("message","Doctor Added Successfully");
 		}else{
 			redirectAttributes.addFlashAttribute("message","Doctor Updated Successfully");
 		}
 		 */		
+		
+		if(result.hasErrors()) {return "addDoctor";}
+       /* String[] suppressedFields = result.getSuppressedFields();
+                if (suppressedFields.length > 0) {
+                    throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+                   }*/
+		
 		if (!image.isEmpty()) {
-			/*	try {
-				validateImage(image);
-			} catch (RuntimeException re) {
-				//	bindingResult.reject(re.getMessage());
-				//return "redirect:/person?new";
-			}*/
-
 			try {
 				String directoryPath = request.getSession().getServletContext().getRealPath("/") + "resources\\img\\";
 				String absolutePath = directoryPath + doctor.getLastname() + ".jpg";
@@ -76,32 +78,10 @@ public class DoctorController {
 		return "redirect:/admin/doctors";
 	}
 
-	private void validateImage(MultipartFile image) {
-		if (!image.getContentType().equals("image/jpeg")) {
-			throw new RuntimeException("Only JPG images are accepted");
-		}
-	}
 
 	private void saveImage(String filename, MultipartFile image) throws RuntimeException, IOException {
-		
-	//	String saveDirectory = servletContext.getRealPath("/") + "resources/img/";
-		try{
-			image.transferTo(new File(filename));   //Here I Added
-		}catch(IOException ex){
-			ex.printStackTrace();
-		}
-		
-		/*try {
-			File file = new File(servletContext.getRealPath("/") + "/"
-					+ filename);
-
-			
-			FileUtils.writeByteArrayToFile(file, image.getBytes());
-			System.out.println("Go to the location:  " + file.toString()
-			+ " on your computer and verify that the image has been stored.");
-		} catch (IOException e) {
-			throw e;
-		}*/
+			//Here I Added the file to the root of the project i.e inside resource/img/ folder.
+			image.transferTo(new File(filename)); 
 	}
 
 	@RequestMapping(value = "/edit/{doctorId}")

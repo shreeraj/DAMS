@@ -8,6 +8,10 @@ package com.dams.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -18,23 +22,27 @@ public class Doctor extends Address{
     @Id
     @GeneratedValue
     private int doctorId;
+    @NotEmpty(message="This field cannot be empty")
     private String firstname;
+    @NotEmpty(message="This field cannot be empty")
     private String lastname;
+    @NotEmpty(message="This field cannot be empty")
     private String username;
+    @Size(min=8, max=24, message="Must be 8 or more and less than 25")
+    @NotEmpty(message="This field cannot be empty")
     private String password;
     private String phone;
     private String dob;
+    
     private String email;
+    @NotEmpty(message="This field cannot be empty")
     private String registration;
 
     public Doctor() {
     }
     
-      
-    
     public Doctor(String firstname, String lastname, String username, String password, String phone, String dob,
 			String email, String registration) {
-		
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
@@ -44,13 +52,6 @@ public class Doctor extends Address{
 		this.email = email;
 		this.registration = registration;
 	}
-
-
-
-
-
-
-
 
 	public int getDoctorId() {
         return doctorId;
@@ -116,19 +117,12 @@ public class Doctor extends Address{
         this.registration = registration;
     }
 
-
-
 	public String getEmail() {
 		return email;
 	}
 
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    
-    
-    
     
 }
