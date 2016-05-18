@@ -14,10 +14,11 @@ import com.dams.service.DoctorService;
 import com.dams.service.PatientService;
 import com.dams.service.SpecialityService;
 
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,54 +36,77 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 public class ClientController {
-   @Resource
-   private DoctorService doctorService;
 
-    @Resource
-   private PatientService patientService;
+	@Resource
+	private DoctorService doctorService;
 
-   @Resource
-   private SpecialityService specialityService;
-   @Resource
-   private ContactService contactService;
+	@Resource
+	private PatientService patientService;
 
-   
-   
-    
-    @RequestMapping("/")
-    public String start(){
-        return "redirect:/client"; // How would it differ if it was forward instead?
-    }
-    
-    @RequestMapping("/client")
-    public String welcome(@ModelAttribute("contact") Contact contact, Model model){
-        //Contact conn = new Contact(contact);
-        //contactService.saveContact(conn);
-        
-       
-        return "home";
-    }
-    
-    @RequestMapping("/client/signup")
-    public String register(Model model){
-        Patient user = new Patient();
-	model.addAttribute("patient",user);
-        return "signup";
-    }
-    @RequestMapping(value = "/client/signup", method = RequestMethod.POST)
-	public String processRegister(@ModelAttribute("patient") Patient patient, RedirectAttributes redirectAttributes){
+	@Resource
+	private SpecialityService specialityService;
+	@Resource
+	private ContactService contactService;
+
+	@Autowired
+	private HttpSession httpsession;
+
+	@RequestMapping("/")
+	public String start() {
+		return "redirect:/client"; // How would it differ if it was forward
+									// instead?
+	}
+
+	@RequestMapping("/client")
+	public String welcome(@ModelAttribute("contact") Contact contact, Model model) {
+		// Contact conn = new Contact(contact);
+		// contactService.saveContact(conn);
+
+		return "home";
+	}
+
+	@RequestMapping("/client/signup")
+	public String register(Model model) {
+		Patient user = new Patient();
+		model.addAttribute("patient", user);
+		return "signup";
+	}
+
+	@RequestMapping(value = "/client/signup", method = RequestMethod.POST)
+	public String processRegister(@ModelAttribute("patient") Patient patient, RedirectAttributes redirectAttributes) {
+
+  
 		patientService.savePatient(patient);
-		redirectAttributes.addFlashAttribute("message","Registered Successfully");
+		redirectAttributes.addFlashAttribute("message", "Registered Successfully");
 		return "redirect:/client/doctors";
 	}
-    
-     
-        
-        @RequestMapping(value = "/client/contactus", method = RequestMethod.POST)
-        public @ResponseBody String postContactMsg(@RequestBody Contact contact, HttpServletRequest request) {	
+
+	@RequestMapping(value = "/client/contactus", method = RequestMethod.POST)
+	public @ResponseBody String postContactMsg(@RequestBody Contact contact, HttpServletRequest request) {
 		contactService.saveContact(contact);
-                System.out.println(contact);
-                contact = new Contact();
-                return "success";
-	}	
+
+		System.out.println(contact);
+		return "success";
+	}
+
+	@RequestMapping(value = "/client/login", method = RequestMethod.POST)
+	public @ResponseBody String processLogin(@RequestBody Patient patient, HttpServletRequest request) {
+		JSONObject obj = new JSONObject();
+		
+		Patient dbPatient = patientService.findByUsername(patient.getUsername());
+
+		// System.out.println(dbPatient.getPassword());
+		if (dbPatient != null) {
+			if (dbPatient.getPassword().equals(patient.getPassword())) {
+				httpsession.setAttribute("patientId", dbPatient.getPatientId());
+				obj.put("login", 1);
+			} else {
+				obj.put("login", 0);
+			}
+		} else {
+			obj.put("login", 0);
+		}
+
+		return obj.toJSONString();
+	}
 }
