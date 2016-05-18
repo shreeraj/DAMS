@@ -14,6 +14,7 @@ import com.dams.domain.Appointment;
 
 import com.dams.domain.DocTime;
 import com.dams.domain.Doctor;
+import com.dams.service.AppointmentService;
 import com.dams.service.DoctorService;
 import com.dams.service.SpecialityService;
 import com.dams.service.TimeService;
@@ -29,6 +30,9 @@ public class ClientDoctorController {
 	
 	@Resource
 	private TimeService timeService;
+	
+	@Resource
+	private AppointmentService appointmentService;
 	
 	@RequestMapping
 	public String seeDoctors(Model model) {
@@ -49,7 +53,9 @@ public class ClientDoctorController {
 	
 	@RequestMapping(value="processAppointment")
 	public String processAppointment(Appointment appointment, Model model){
-		System.out.println(appointment.getDocId());
+		
+		appointmentService.saveAppointment(appointment);
+		
 		return "doctorDetail";
 	}
 	
