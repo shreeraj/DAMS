@@ -41,6 +41,9 @@
                             <a href="<spring:url value='/admin/specialities' />"><i class="fa fa-table fa-fw"></i> Specialities</a>
                         </li>
                         <li>
+                            <a href="<spring:url value='/admin/sliders' />"><i class="fa fa-list fa-fw"></i> Banner</a>
+                        </li>
+                        <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Services</a>
                         </li>
                         

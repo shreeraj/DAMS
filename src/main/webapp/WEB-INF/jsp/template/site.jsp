@@ -62,7 +62,40 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#datepickerDOB').datepicker();
-             
+                $('#submitId').click(function() {
+			
+ 
+		    var data1 = {};
+		    
+                   
+                   data1["name"] = $("#name").val();
+                   data1['email'] = $("#email").val();
+                   data1['phone'] = $("#phone").val();
+                   data1['message'] = $("#message").val();
+                   
+                   $.ajax({
+                      type:"POST",
+                      dataType : 'html',
+                        
+                        data: JSON.stringify(data1),
+            
+                      url:"<spring:url value='/client/contactus'/>",
+                      headers: { 
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json' 
+                        },
+                      
+                      beforeSend:function(d){
+                          $("#contactForm").html("<h3>Please Wait....</h3>");
+                        },
+                      success:function(msg){
+                          
+                          $("#contactForm").html("<h3>Thnak you<br/> We will back to you soon.</h3>");
+                        
+                        }
+                      
+                   }); 
+                });
               
             })
         </script>

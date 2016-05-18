@@ -63,7 +63,7 @@ public class DoctorDashboardController {
 	{
 		model.addAttribute("doctor", doctor);
 		List<Appointment> appointments = appointmentService.getAppointmentsByDocId(doctorId,0);
-		List<AppointmentHelperBean> appointmentHelpersList = new ArrayList<>();
+		List<AppointmentHelperBean> appointmentHelpersList = new ArrayList<AppointmentHelperBean>();
 		for(Appointment app : appointments){
 			AppointmentHelperBean helperBean = new AppointmentHelperBean();
 			helperBean.setAppointment(app);
