@@ -62,6 +62,7 @@ public class ClientController {
        
         return "home";
     }
+    
     @RequestMapping("/client/signup")
     public String register(Model model){
         Patient user = new Patient();
@@ -81,6 +82,7 @@ public class ClientController {
         public @ResponseBody String postContactMsg(@RequestBody Contact contact, HttpServletRequest request) {	
 		contactService.saveContact(contact);
                 System.out.println(contact);
+                contact = new Contact();
                 return "success";
 	}	
 }

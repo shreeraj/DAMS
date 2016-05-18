@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-xs-5 header-logo">
                         <br>
-                        <a href="index.html"><img src="<spring:url value='/resources/img/logo.png'/>" alt="" class="img-responsive logo"></a>
+                        <a href="<spring:url value='/client' />"><img src="<spring:url value='/resources/img/logo.png'/>" alt="" class="img-responsive logo"></a>
                     </div>
 
                     <div class="col-md-7">
@@ -33,7 +33,7 @@
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a class="menu active" href="#home" >Home</a></li>
+                                        <li><a class="menu active" href="<spring:url value='/client' />" >Home</a></li>
                                         <li><a class="menu" href="#about">about us</a></li>
                                         <li><a class="menu" href="#service">our services </a></li>
                                         

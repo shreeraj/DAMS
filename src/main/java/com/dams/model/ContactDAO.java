@@ -36,6 +36,12 @@ public class ContactDAO implements ContactService{
     public Contact findById(int id) {
         return contactRepository.findOne(id);
     }
+
+    @Override
+    public void updateAsReplied(Contact contact) {
+        contact.setReplied(1);
+        contactRepository.save(contact);
+    }
 	
 
 

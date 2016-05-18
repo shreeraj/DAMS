@@ -18,5 +18,11 @@ import com.dams.domain.Patient;
 @Repository
 @Transactional(readOnly = true) 
 public interface ContactRepository extends CrudRepository<Contact, Integer>{
+
+    /**
+     *
+     * @param id
+     */
+    
 	
 }
