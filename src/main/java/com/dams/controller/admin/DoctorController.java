@@ -68,6 +68,10 @@ public class DoctorController {
 		
 		Doctor doc = doctorService.findById(doctorId);
 		model.addAttribute("doctorForm",doc);
+		List<Speciality> specs = new ArrayList<Speciality>();
+		specs.add(new Speciality(-1, "Select Speciality"));
+		specs.addAll(specialityService.getAllSpecialities());
+		model.addAttribute("specialities", specs);
 		return "addDoctor";
 	}
 	

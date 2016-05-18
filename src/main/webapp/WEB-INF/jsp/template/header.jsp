@@ -33,9 +33,9 @@
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <ul class="nav navbar-nav navbar-right">
+
                                         <li><a class="menu active" href="<spring:url value='/client' />" >Home</a></li>
-                                        <li><a class="menu" href="#about">about us</a></li>
-                                        <li><a class="menu" href="#service">our services </a></li>
+                                        <li><a class="menu" href="<spring:url value='/client/doctors'/>">our team </a></li>
                                         
                                         <li><a class="menu" href="#contact"> contact us</a></li>
                                         <li><a class="menu" href="<spring:url value='/client/signup' />"> Sign Up</a></li>

@@ -61,6 +61,7 @@
 		
 		<div class="row">
 			<div class="col-md-4 col-md-offset-6">
+			<h3> ${message}</h3>
 			<spring:url var ="appointmentConfirm" value="/client/doctors/processAppointment"/>
 				<form:form class="app_form" modelAttribute="appointmentForm" action="${appointmentConfirm}">
 					<div class="form-group">

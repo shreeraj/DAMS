@@ -12,4 +12,8 @@ public interface AppointmentService {
 	
 	public boolean checkIfSlotAvailable(Appointment appointment);
 	
+
+	public Appointment getAppointmentById(int appointmentId);
+
+	
 }

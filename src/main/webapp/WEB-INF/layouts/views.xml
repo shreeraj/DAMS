@@ -22,6 +22,14 @@
 	<definition name="doctorDetail" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/doctorDetail.jsp" />
 	</definition>
+	
+	<definition name="successAppointment" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/successAppointment.jsp" />
+	</definition>
+	
+<!-- 	<definition name="login" extends="DefaultTemplate"> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/jsp/successAppointment.jsp" /> -->
+<!-- 	</definition> -->
 
 
 </tiles-definitions>
