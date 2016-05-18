@@ -20,7 +20,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>Doctor</title>
 
 <link
 	href="<spring:url value='/resources/admin/bower_components/bootstrap/dist/css/bootstrap.min.css' />"
@@ -58,7 +58,10 @@
 	rel="stylesheet" type="text/css">
 	
 <!-- 	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script> -->
-
+<link
+	href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
+	rel="stylesheet">
+	
 </head>
 
 <body>
@@ -113,13 +116,16 @@
 	<script src="<spring:url value='/resources/admin/js/picker.js' />"></script>
 	<script src="<spring:url value='/resources/admin/js/picker.date.js' />"></script>
 	<script src="<spring:url value='/resources/admin/js/picker.time.js' />"></script>
-	
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 // 			alert('tst');
 			$(".fullTime").pickatime();
 			
-			 //$('#example').DataTable();
+			
+				 $('.dataTable').DataTable();
+			
+	
 		})
 	</script>
 	
