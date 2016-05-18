@@ -83,7 +83,8 @@
                       url:"<spring:url value='/client/contactus'/>",
                       headers: { 
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json' 
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN':$('.csr').val()
                         },
                       
                       beforeSend:function(d){

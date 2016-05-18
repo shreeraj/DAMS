@@ -13,4 +13,5 @@ public interface PatientService {
 	public void updatePatient(Patient patient);
 	public void deletePatient(Patient patient);
 	public Patient findByFirstname(String firstname);
+	public Patient findByUsername(String username);
 }
