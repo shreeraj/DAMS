@@ -13,7 +13,8 @@
 				src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
 		</div>
 		<div class="col-md-6">
-			<a href="fds" class="btn btn-primary pull-right"
+		  
+			<a href="<spring:url value='/doctor/profile/edit?id=${doctor.doctorId}'/>" class="btn btn-primary pull-right"
 				style="margin-bottom: 10px;"><i class="fa fa-pencil"></i>Edit</a>
 			<table class="table table-bordered">
 				<tr>

@@ -12,5 +12,8 @@
 	<definition name="doctorAppointments" extends="DoctorDashboardTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/doctor/appointments.jsp" />
 	</definition>
+	<definition name="doctorEditProfile" extends="DoctorDashboardTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/doctor/form.jsp" />
+	</definition>
 	
 </tiles-definitions>
