@@ -25,6 +25,7 @@ import com.dams.domain.Doctor;
 import com.dams.service.AppointmentService;
 import com.dams.service.DoctorService;
 import com.dams.service.PatientService;
+import com.dams.service.SpecialityService;
 import com.dams.service.TimeService;
 
 /**
@@ -48,6 +49,9 @@ public class DoctorDashboardController {
 
 	@Resource
 	private TimeService timeService;
+	
+	@Resource
+	private SpecialityService specialityService;
 
 	Doctor doctor;
 
@@ -60,6 +64,7 @@ public class DoctorDashboardController {
 	public String dashboard(@PathVariable int doctorId, Model model) {
 		this.doctor = doctorService.findById(doctorId);
 		model.addAttribute("doctor", doctor);
+		model.addAttribute("speciality", specialityService.findById(Integer.valueOf(doctor.getSpecialityId())));
 		return "doctorDashboard";
 	}
 
@@ -67,6 +72,7 @@ public class DoctorDashboardController {
 	public String profile(@RequestParam("id") int doctorId, Model model) {
 		System.out.println(doctorId);
 		model.addAttribute("doctor", doctorService.findById(doctorId));
+		model.addAttribute("speciality", specialityService.findById(Integer.valueOf(doctor.getSpecialityId())));
 		return "doctorDashboard";
 	}
 

@@ -13,21 +13,27 @@
 				src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
 		</div>
 		<div class="col-md-6">
-		  
-			<a href="<spring:url value='/doctor/profile/edit?id=${doctor.doctorId}'/>" class="btn btn-primary pull-right"
-				style="margin-bottom: 10px;"><i class="fa fa-pencil"></i>Edit</a>
+
+			<a
+				href="<spring:url value='/doctor/profile/edit?id=${doctor.doctorId}'/>"
+				class="btn btn-primary pull-right" style="margin-bottom: 10px;"><i
+				class="fa fa-pencil"></i>Edit</a>
 			<table class="table table-bordered">
 				<tr>
 					<td>Name</td>
 					<td>Dr. ${doctor.firstname} ${doctor.lastname }</td>
 				</tr>
 				<tr>
-					<td>Registration No.</td>
+					<td>Registration No</td>
 					<td>${doctor.registration }</td>
 				</tr>
 				<tr>
-					<td>Date Of Birth.</td>
-					<td>${doctor.dob }</td>
+					<td>Speciality</td>
+					<td>${speciality.specialityName}</td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td>${doctor.street}, ${doctor.city}, ${doctor.state} }</td>
 				</tr>
 				<tr>
 					<td>Phone</td>
