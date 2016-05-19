@@ -7,7 +7,7 @@
 	<!-- general form elements -->
 	<div class="box box-primary">
 		<div class="box-header with-border">
-			<h3 class="box-title">Add New Doctor</h3>
+			<h3 class="box-title">Add New Slider</h3>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->

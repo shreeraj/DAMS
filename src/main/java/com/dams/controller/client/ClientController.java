@@ -12,7 +12,10 @@ import com.dams.service.ContactService;
 import com.dams.service.DoctorService;
 
 import com.dams.service.PatientService;
+import com.dams.service.SliderService;
 import com.dams.service.SpecialityService;
+
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -55,6 +58,9 @@ public class ClientController {
 	private SpecialityService specialityService;
 	@Resource
 	private ContactService contactService;
+	
+	@Resource
+	private SliderService sliderService;
 
 	@Autowired
 	private HttpSession httpsession;
@@ -67,8 +73,12 @@ public class ClientController {
 
 	@RequestMapping("/client")
 	public String welcome(@ModelAttribute("contact") Contact contact, Model model) {
-		// Contact conn = new Contact(contact);
-		// contactService.saveContact(conn);
+		List<Doctor> doctors = doctorService.getAll();
+		if(doctors.size()>2){
+			doctors = doctors.subList(0, 3);
+		}
+		model.addAttribute("doctors",doctors);
+		model.addAttribute("sliders",sliderService.getAll());
 
 		return "home";
 	}
@@ -111,13 +121,13 @@ public class ClientController {
 			    .to(name, emailTo)
 			    .subject(subject)
 			    .text(msg)
-			    .textHTML("<img src='cid:wink1'><b>We should meet up!</b><img src='cid:wink2'>")
+			    .textHTML(msg)
 			    .build();
 
 		
 		new Mailer("smtp.gmail.com", 25, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
-	    new Mailer("smtp.gmail.com", 587, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
-	    new Mailer("smtp.gmail.com", 465, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_SSL).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+//	    new Mailer("smtp.gmail.com", 587, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+//	    new Mailer("smtp.gmail.com", 465, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_SSL).sendMail((org.codemonkey.simplejavamail.email.Email) email);
 		
 		System.out.println("Email has been sent");
 	}

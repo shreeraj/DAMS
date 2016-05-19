@@ -7,6 +7,9 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.swing.text.html.HTMLDocument.HTMLReader.SpecialAction;
 
+import org.codemonkey.simplejavamail.Mailer;
+import org.codemonkey.simplejavamail.TransportStrategy;
+import org.codemonkey.simplejavamail.email.Email;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +20,10 @@ import com.dams.domain.Appointment;
 
 import com.dams.domain.DocTime;
 import com.dams.domain.Doctor;
+import com.dams.domain.Patient;
 import com.dams.service.AppointmentService;
 import com.dams.service.DoctorService;
+import com.dams.service.PatientService;
 import com.dams.service.SpecialityService;
 import com.dams.service.TimeService;
 
@@ -36,6 +41,9 @@ public class ClientDoctorController {
 	
 	@Resource
 	private AppointmentService appointmentService;
+	
+	@Resource
+	private PatientService patientService;
 	
 	@RequestMapping
 	public String seeDoctors(Model model) {
@@ -86,9 +94,37 @@ public class ClientDoctorController {
 		model.addAttribute("appointment",appointment);
 		model.addAttribute("doctor",doc);
 		model.addAttribute("doc",docTime);
+		Patient p = patientService.findById(appointment.getPatientId());
+		
+		String msg = "You have booked an appointment with DR. "+doc.getFirstname()+" "+doc.getLastname();
+		msg+= " on "+appointment.getAppDate()+" at "+docTime.getStart()+" "+docTime.getEnd();
+		
+		sendEmail(p.getEmail(),p.getFirstname(),msg,"Appointment Confirmation");
+		
+		String msg2 = "You have an appointment with "+p.getFirstname()+" "+p.getLastname();
+		msg2+= " on "+appointment.getAppDate()+" at "+docTime.getStart()+" "+docTime.getEnd();
+		sendEmail(doc.getEmail(),doc.getFirstname(),msg2,"Appointment Confirmation");
 		return "successAppointment";
 	}
 	
+	
+    
+    private void sendEmail(String emailTo, String name, String msg, String subject) {
+ 		Email email = new Email.Builder()
+ 			    .from("Webmaster", "doctor.a2789@gmail.com") 
+ 			    .to(name, emailTo)
+ 			    .subject(subject)
+ 			    .text(msg)
+ 			    .textHTML(msg)
+ 			    .build();
+
+ 		
+ 		new Mailer("smtp.gmail.com", 25, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+// 	    new Mailer("smtp.gmail.com", 587, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+// 	    new Mailer("smtp.gmail.com", 465, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_SSL).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+ 		
+ 		System.out.println("Email has been sent");
+ 	}
 	
 
 }

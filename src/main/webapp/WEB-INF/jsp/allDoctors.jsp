@@ -47,8 +47,8 @@
 					<div class="col-md-4 col-sm-6 mix ${doctor.specialityId }">
 						<div class="single-about-detail clearfix">
 							<div class="about-img">
-								<img class="img-responsive"
-									src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
+								<img class="img-responsive" style="width:400px; height:400px"
+									src="<spring:url value='/resources/img/${doctor.image }'/>" alt="">
 							</div>
 							<div class="about-details">
 

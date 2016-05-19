@@ -13,7 +13,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-5 header-logo">
-			<br> <a href="index.html"><img
+			<br> <a href="<spring:url value='/client'/>"><img
 				src="<spring:url value='/resources/img/logo.png'/>" alt=""
 				class="img-responsive logo"></a>
 		</div>

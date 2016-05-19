@@ -10,7 +10,7 @@
 		<div class="col-md-3 col-md-offset-1">
 
 			<img class="img-responsive"
-				src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
+				src="<spring:url value='/resources/img/${doctor.image }'/>" alt="">
 		</div>
 		<div class="col-md-6">
 

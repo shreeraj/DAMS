@@ -19,6 +19,7 @@
 					<label class="control-label"><spring:message code="addDoctor.form.firsname"/></label>
 					<form:input path="firstname" class="form-control" />
 					<form:hidden path="doctorId" />
+					<form:hidden path="image" />
 					<form:errors cssStyle="color:red;" path="firstname" />
 				</div>
 
@@ -49,9 +50,7 @@
 				
 				<div class="form-group">
 					<label class="control-label">Image</label>
-					<div class="input_fields_wrap">
-						<input style="padding:0px;" type="file" name="file" accept="image/*" class="form-control" />
-					</div>
+					<input name="imgData" class="btn btn-primary" type="file" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Registration No.</label>

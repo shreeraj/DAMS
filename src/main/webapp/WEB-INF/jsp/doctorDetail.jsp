@@ -26,8 +26,8 @@
 		<div class="row">
 			<h2>Dr. ${doctor.firstname} ${doctor.lastname }</h2>
 			<div class="col-md-3 col-md-offset-1">
-			<img class="img-responsive"
-									src="<spring:url value='/resources/img/item1.jpg'/>" alt="">
+			<img class="img-responsive" style="width:400px; height:300px"
+									src="<spring:url value='/resources/img/${doctor.image }'/>" alt="">
 			</div>
 			<div class="col-md-6">
 				<table class="table table-bordered">

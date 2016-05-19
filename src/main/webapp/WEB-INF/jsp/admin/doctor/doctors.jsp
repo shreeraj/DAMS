@@ -20,6 +20,8 @@
 				<tr>
 					<td>Firstname</td>
 					<td>Lastname</td>
+					<td>Image</td>
+
 					<td>Actions</td>
 				</tr>
 			</thead>
@@ -28,11 +30,17 @@
 					<tr>
 						<td>${doc.firstname}</td>
 						<td>${doc.lastname }</td>
-						<td>
-							<a href='<spring:url value="/admin/doctors/edit/${doc.doctorId }"/>'><i class="fa fa-pencil"></i></a>
-							<a href="<spring:url value="/admin/doctors/delete/${doc.doctorId }"/>"><i class="fa fa-trash"></i></a>
-							<a href="<spring:url value="/admin/time/${doc.doctorId }"/>"><i class="fa fa-clock-o"></i></a>
-						</td>
+						<td><img width="60" height="60"
+							class="brain img-responsive thumbnailb"
+							src="<spring:url value='/resources/img/${doc.image }'/>"
+							alt=""></td>
+						<td><a
+							href='<spring:url value="/admin/doctors/edit/${doc.doctorId }"/>'><i
+								class="fa fa-pencil"></i></a> <a
+							href="<spring:url value="/admin/doctors/delete/${doc.doctorId }"/>"><i
+								class="fa fa-trash"></i></a> <a
+							href="<spring:url value="/admin/time/${doc.doctorId }"/>"><i
+								class="fa fa-clock-o"></i></a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -46,8 +46,8 @@ public class Doctor extends Address{
     
     private transient CommonsMultipartFile doctorPicture = null;
     
-    @Lob
-	private byte[] image;
+   
+	private String image;
     
     @ManyToOne
     private Speciality speciality;
@@ -180,17 +180,6 @@ public class Doctor extends Address{
 
 
 
-	public byte[] getImage() {
-		return image;
-	}
-
-
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
-
 
 	public Speciality getSpeciality() {
 		return speciality;
@@ -204,10 +193,18 @@ public class Doctor extends Address{
 
 
 
-	public String getUrl() { 
-		if(this.image != null && this.image.length > 0) 
-			return "data:image/*;base64," + Base64.getEncoder().encodeToString(this.image);
-		return ""; }
+	public String getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	
+
     
     
 }

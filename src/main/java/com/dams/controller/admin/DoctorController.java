@@ -59,25 +59,34 @@ public class DoctorController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveDoctor(@ModelAttribute("doctorForm") @Valid Doctor doctor, BindingResult result,
-			RedirectAttributes redirectAttributes, @RequestParam(value="file", required=false) MultipartFile file, HttpServletRequest request) throws IOException {
+	public String saveDoctor(@ModelAttribute("doctorForm") @Valid Doctor doctor, @RequestParam(value = "imgData", required = false) MultipartFile img, BindingResult result,
+			RedirectAttributes redirectAttributes,  HttpServletRequest request) {
 		if (doctor.getDoctorId() == 0) {
 			redirectAttributes.addFlashAttribute("message", "Doctor Added Successfully");
+			
+			//image testing
+			if (!img.isEmpty()) {
+				try {
+					String directoryPath = request.getSession().getServletContext().getRealPath("/") + "resources/img/";
+					String absolutePath = directoryPath + doctor.getFirstname() + ".jpg";
+					saveImage(absolutePath, img);
+	                                doctor.setImage(doctor.getFirstname() + ".jpg");
+				
+				} catch (IOException e) {
+					System.out.println("upload huna sakena");
+					//bindingResult.reject(e.getMessage());
+					//return "redirect:/person?new";
+				}
+			}else{
+				System.out.println("khali aayo");
+			}
+			
+			//end image testing
+			
 		} else {
 			redirectAttributes.addFlashAttribute("message", "Doctor Updated Successfully");
 		}
-		//image testing
 		
-		if(!file.isEmpty()){
-			String directoryPath = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
-			String absolutePath = directoryPath+new Date().getTime()+".jpg";
-			file.transferTo(new File(absolutePath));
-			
-		}else{
-			System.out.println("khali thiyo");
-		}
-		
-		//end image testing
 
 		if (!result.hasErrors()) {
 //			doctor.setImage(file[0].getBytes());
@@ -100,6 +109,12 @@ public class DoctorController {
 		model.addAttribute("specialities", specs);
 		return "addDoctor";
 	}
+	
+
+    private void saveImage(String filename, MultipartFile image) throws RuntimeException, IOException {
+		//Here I Added the file to the root of the project i.e inside resource/img/ folder.
+		image.transferTo(new File(filename)); 
+}
 
 	@RequestMapping(value = "/delete/{doctorId}")
 	public String deleteDoctor(@PathVariable int doctorId, Model model, RedirectAttributes redirectAttributes) {
