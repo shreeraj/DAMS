@@ -17,7 +17,13 @@ import com.dams.service.SpecialityService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import javax.validation.Valid;
+
+import org.codemonkey.simplejavamail.Mailer;
+import org.codemonkey.simplejavamail.TransportStrategy;
+import org.codemonkey.simplejavamail.email.Email;
+
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,9 +96,32 @@ public class ClientController {
 		contactService.saveContact(contact);
 
 		System.out.println(contact);
+                String msg = "Your Quiry has been received";
+                String to = contact.getEmail();
+                String name = contact.getName();
+                
+                sendSuccessAffirmation(to,name,msg,"Thank You: Inquiry");
 		return "success";
+                
 	}
+        
+        private void sendSuccessAffirmation(String emailTo, String name, String msg, String subject) {
+		Email email = new Email.Builder()
+			    .from("Webmaster", "doctor.a2789@gmail.com") 
+			    .to(name, emailTo)
+			    .subject(subject)
+			    .text(msg)
+			    .textHTML("<img src='cid:wink1'><b>We should meet up!</b><img src='cid:wink2'>")
+			    .build();
 
+		
+		new Mailer("smtp.gmail.com", 25, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+	    new Mailer("smtp.gmail.com", 587, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_TLS).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+	    new Mailer("smtp.gmail.com", 465, "hitsad12@gmail.com", "coder@id", TransportStrategy.SMTP_SSL).sendMail((org.codemonkey.simplejavamail.email.Email) email);
+		
+		System.out.println("Email has been sent");
+	}
+        
 	@RequestMapping(value = "/client/login", method = RequestMethod.POST)
 	public @ResponseBody String processLogin(@RequestBody Patient patient, HttpServletRequest request) {
 		JSONObject obj = new JSONObject();

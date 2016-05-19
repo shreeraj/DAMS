@@ -11,8 +11,8 @@
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
-		<spring:url var="postUrl" value='/admin/sliders/add' />
-		<form:form role="form" modelAttribute="sliderForm"
+		<spring:url var="postUrl" value='/admin/sliders/add?${_csrf.parameterName}=${_csrf.token}' />
+		<form:form role="form" modelAttribute="sliderForm" enctype="multipart/form-data"
 			action="${postUrl }">
 			<div class="box-body">
 				<div class="form-group">
@@ -21,10 +21,10 @@
 					<form:hidden path="sliderId" />
 				</div>
 
-				
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				<div class="form-group">
 					<label class="control-label">Image</label>
-					<form:input path="image" class="form-control" />
+					<input name="imgData" class="btn btn-primary" type="file" />
 				</div>
 
 				<div class="form-group">

@@ -200,6 +200,7 @@
                     <h3>leave us a message</h3>
                     <div id="contactForm">
                     <form:form class="form" commandName="contact" id="submitForm">
+                        <input type="hidden" class="aaa"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
                         <form:input  path="name" id="name" class="name" type="text" placeholder="Name" required="true" />
                         <form:input path="email" id="email" class="email" type="email" placeholder="Email" />
                         <form:input class="phone" id="phone" path="phone" type="text" placeholder="Phone No:" />
