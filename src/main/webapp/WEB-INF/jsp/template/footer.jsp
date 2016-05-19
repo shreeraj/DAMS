@@ -109,7 +109,7 @@
                     }else{
                     
                       	 $("#logMsg").html("<h3>Login Successfull, Redirecting...</h3>");
-//                      	location.reload();
+                     	location.reload();
                     }
                    
                   

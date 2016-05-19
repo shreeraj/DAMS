@@ -12,4 +12,7 @@ public interface DoctorService {
 	public void updateDoctor(Doctor doctor);
 	public void deleteDoctor(Doctor doctor);
 	public Doctor findByFirstname(String firstname);
+	public List<Doctor> getThreeDocs();
+	public Doctor findByUsername(String username);
+	
 }

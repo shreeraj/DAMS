@@ -20,25 +20,27 @@
 	</definition>
 
 	<definition name="docTime" extends="AdminTemplate">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/docTime.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/doctor/docTime.jsp" />
 	</definition>
-	
+
 	<definition name="timeForm" extends="AdminTemplate">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/doctor/docTimeForm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/doctor/docTimeForm.jsp" />
 	</definition>
-		
+
 	<definition name="addSpeciality" extends="AdminTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/speciality/addSpeciality.jsp"></put-attribute>
 	</definition>
-	
+
 	<definition name="allSpecialities" extends="AdminTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/speciality/specialities.jsp"></put-attribute>
 	</definition>
-        
-        
-        <definition name="allSliders" extends="AdminTemplate">
+
+
+	<definition name="allSliders" extends="AdminTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/admin/slider/sliders.jsp" />
 	</definition>
@@ -46,9 +48,15 @@
 	<definition name="addSlider" extends="AdminTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/slider/form.jsp" />
 	</definition>
-        <definition name="inquiries" extends="AdminTemplate">
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/allInquiries.jsp" />
+	<definition name="inquiries" extends="AdminTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/admin/allInquiries.jsp" />
 	</definition>
-        
-        
+
+
+<!-- 	<definition name="doctorLogin" extends="AdminTemplate"> -->
+<!-- 		<put-attribute name="body" -->
+<!-- 			value="/WEB-INF/jsp/doctor/doctorLogin.jsp" /> -->
+<!-- 	</definition> -->
+
 </tiles-definitions>
