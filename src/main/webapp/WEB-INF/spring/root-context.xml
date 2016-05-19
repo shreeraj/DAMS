@@ -31,8 +31,8 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/dams?useSSL=false" />
 
-		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="username" value="newuser" />
+		<property name="password" value="password" />
 
 
 	</bean>
@@ -54,7 +54,10 @@
 			</props>
 		</property>
 	</bean>
-
+        <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="500000" />
+	</bean>
 	<bean id="jpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="showSql" value="true" />
@@ -75,7 +78,7 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-        
+       
 
 	<!-- <bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" 
 		/> -->

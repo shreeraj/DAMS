@@ -84,7 +84,7 @@
                       headers: { 
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN':$('.csr').val()
+                            'X-CSRF-TOKEN':$('.aaa').val()
                         },
                       
                       beforeSend:function(d){

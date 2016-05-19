@@ -37,8 +37,10 @@
               url:"<spring:url value='/admin/reply'/>",
               headers: { 
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json' 
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN':$('.aaa').val()
                 },
+                       
               beforeSend:function(d){
                   $(".modalContent-"+currentID).html('  <h3 style="color:red;">Please Wait....</h3><img height="30" width="30" class="bone img-responsive" src="<spring:url value='/resources/img/loading.git'/>" alt="">');
                 },
@@ -85,6 +87,7 @@
                 </td>
                 <form:form id="submitForm-${msg.contactId}"  commandName="contact">
                     <form:input path="contactId" type="hidden" id="contactId-${msg.contactId}" value="${msg.contactId}" />
+                    <input type="hidden" class="aaa"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
                     <form:input path="name" type="hidden" id="name-${msg.contactId}" value="${msg.name}" />
                     <form:input path="email" type="hidden" id="email-${msg.contactId}" value="${msg.email}" />
                     <form:input path="phone" type="hidden" id="phone-${msg.contactId}" value="${msg.phone}" />
