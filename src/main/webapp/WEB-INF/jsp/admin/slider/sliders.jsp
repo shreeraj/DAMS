@@ -27,7 +27,10 @@
 				<c:forEach items="${sliders}" var="slider">
 					<tr>
 						<td>${slider.title}</td>
-						<td>${slider.image }</td>
+						<td>
+                                                    <img width="60" height="60" class="brain img-responsive thumbnailb" src="<spring:url value='/resources/img/${slider.image }'/>" alt="">
+                                                    ${slider.image }
+                                                </td>
                                                 <td>${slider.description }</td>
 						<td>
 							<a href='<spring:url value="/admin/sliders/edit/${slider.sliderId }"/>'><i class="fa fa-pencil"></i></a>

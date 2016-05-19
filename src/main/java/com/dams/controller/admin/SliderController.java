@@ -50,18 +50,18 @@ public class SliderController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveSlider(@ModelAttribute("sliderForm") Slider slider, @RequestParam(value = "imgData", required = false) MultipartFile image,HttpServletRequest request, RedirectAttributes redirectAttributes){
+	public String saveSlider(@ModelAttribute("sliderForm") Slider slider, @RequestParam(value = "imgData", required = false) MultipartFile img,HttpServletRequest request, RedirectAttributes redirectAttributes){
 		if(slider.getSliderId()==0){
 			redirectAttributes.addFlashAttribute("message","Slider Added Successfully");
 		}else{
 			redirectAttributes.addFlashAttribute("message","Slider Updated Successfully");
 		}
-		if (!image.isEmpty()) {
+		if (!img.isEmpty()) {
 			try {
-				String directoryPath = request.getSession().getServletContext().getRealPath("/") + "resources//slider//";
+				String directoryPath = request.getSession().getServletContext().getRealPath("/") + "resources/img/";
 				String absolutePath = directoryPath + slider.getTitle() + ".jpg";
-				saveImage(absolutePath, image);
-                                slider.setImage(absolutePath);
+				saveImage(absolutePath, img);
+                                slider.setImage(slider.getTitle() + ".jpg");
 				sliderService.saveSlider(slider);
 			} catch (IOException e) {
 				//bindingResult.reject(e.getMessage());
