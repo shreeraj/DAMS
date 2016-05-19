@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionBindingEvent;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -52,8 +56,49 @@ public class DoctorDashboardController {
 	
 	@Resource
 	private SpecialityService specialityService;
+	
+	@Autowired
+	private HttpSession httpSession;
 
 	Doctor doctor;
+	
+	
+
+	
+	@RequestMapping
+	public String showLogin(Model model){
+		model.addAttribute("docLogin",new Doctor());
+		return "doctor/doctorLogin";
+	}
+	
+	@RequestMapping(value = "/processLogin", method = RequestMethod.POST)
+	public String processLogin(@ModelAttribute Doctor doc, RedirectAttributes redirectAttributes){
+		String returnString = "redirect:/doctor";
+		
+		Doctor dbDoctor = doctorService.findByUsername(doc.getUsername());
+		
+		if(dbDoctor!=null){
+			if(dbDoctor.getPassword().equals(doc.getPassword())){
+				httpSession.setAttribute("doctorId", dbDoctor.getDoctorId());
+				returnString = "redirect:/doctor/"+dbDoctor.getDoctorId();
+			}else{
+				redirectAttributes.addFlashAttribute("message","Invalid Username/Password");
+			}
+		}else{
+			redirectAttributes.addFlashAttribute("message","Invalid Username/Password");
+		}
+		
+		return returnString;
+	}
+	
+	@RequestMapping("logout")
+	public String processLogout(RedirectAttributes redirectAttributes){
+		httpSession.invalidate();
+		redirectAttributes.addFlashAttribute("message","Invalid Username/Password");
+		return "redirect:/doctor";
+	}
+	
+	
 
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
@@ -61,7 +106,12 @@ public class DoctorDashboardController {
 	}
 
 	@RequestMapping(value = "/{doctorId}")
-	public String dashboard(@PathVariable int doctorId, Model model) {
+	public String dashboard(@PathVariable int doctorId, Model model, RedirectAttributes redirectAttributes) {
+		if(httpSession.getAttribute("doctorId")=="" || httpSession.getAttribute("doctorId")==null){
+			redirectAttributes.addFlashAttribute("message","You must be logged in");
+			return "redirect:/doctor";
+		}
+		
 		this.doctor = doctorService.findById(doctorId);
 		model.addAttribute("doctor", doctor);
 		model.addAttribute("speciality", specialityService.findById(Integer.valueOf(doctor.getSpecialityId())));

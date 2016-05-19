@@ -44,4 +44,14 @@ public class DoctorDAO implements DoctorService {
 		return doctorRepository.findByFirstname(firstname);
 	}
 
+	@Override
+	public List<Doctor> getThreeDocs() {
+		return (List<Doctor>) doctorRepository.findAll();
+	}
+
+	@Override
+	public Doctor findByUsername(String username) {
+		return doctorRepository.findByusername(username);
+	}
+
 }

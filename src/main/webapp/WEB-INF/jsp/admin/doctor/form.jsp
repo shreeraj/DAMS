@@ -16,23 +16,27 @@
 			action="${postUrl }">
 			<div class="box-body">
 				<div class="form-group">
-					<label class="control-label">First Name</label>
+					<label class="control-label"><spring:message code="addDoctor.form.firsname"/></label>
 					<form:input path="firstname" class="form-control" />
 					<form:hidden path="doctorId" />
+					<form:errors cssStyle="color:red;" path="firstname" />
 				</div>
 
 				<div class="form-group">
 					<label class="control-label">Last Name</label>
 					<form:input path="lastname" class="form-control" />
+					<form:errors cssStyle="color:red;" path="lastname" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">User Name</label>
 					<form:input path="username" class="form-control" />
+					<form:errors cssStyle="color:red;" path="username" />
 				</div>
 
 				<div class="form-group">
 					<label class="control-label">Password</label>
 					<form:input path="password" class="form-control" type="password" />
+					<form:errors cssStyle="color:red;" path="password" />
 
 				</div>
 
@@ -45,16 +49,19 @@
 				<div class="form-group">
 					<label class="control-label">Registration No.</label>
 					<form:input path="registration" class="form-control" />
+					<form:errors cssStyle="color:red;" path="registration" />
 				</div>
 				<h3 class="box-title">Contact Information</h3>
 				<div class="form-group">
 					<label class="control-label">Phone</label>
 					<form:input path="phone" class="form-control" />
+					<form:errors cssStyle="color:red;" path="phone" />
 				</div>
 
 				<div class="form-group">
 					<label class="control-label">Email</label>
 					<form:input path="email" class="form-control" />
+					<form:errors cssStyle="color:red;" path="email" />
 				</div>
 
 

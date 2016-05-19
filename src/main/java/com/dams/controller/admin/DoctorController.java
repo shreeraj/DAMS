@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,62 +25,68 @@ import com.dams.service.SpecialityService;
 public class DoctorController {
 	@Resource
 	private DoctorService doctorService;
-	
+
 	@Resource
 	private SpecialityService specialityService;
-	
-	 //@NotNull
-	 private Speciality speciality;
+
+	// @NotNull
+	private Speciality speciality;
 
 	@RequestMapping
-	public String allDoctors(Model model){
+	public String allDoctors(Model model) {
 		List<Doctor> docs = doctorService.getAll();
-			model.addAttribute("doctors",docs);
-	
+		model.addAttribute("doctors", docs);
+
 		return "allDoctors";
 	}
-	
+
 	@RequestMapping(value = "/add")
-	public String addDoctor(Model model){
+	public String addDoctor(Model model) {
 		Doctor doc = new Doctor();
-		model.addAttribute("doctorForm",doc);
+		model.addAttribute("doctorForm", doc);
 		List<Speciality> specs = new ArrayList<Speciality>();
 		specs.add(new Speciality(-1, "Select Speciality"));
 		specs.addAll(specialityService.getAllSpecialities());
 		model.addAttribute("specialities", specs);
 		return "addDoctor";
 	}
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveDoctor(@ModelAttribute("doctorForm") Doctor doctor, RedirectAttributes redirectAttributes){
-		if(doctor.getDoctorId()==0){
-			redirectAttributes.addFlashAttribute("message","Doctor Added Successfully");
-		}else{
-			redirectAttributes.addFlashAttribute("message","Doctor Updated Successfully");
+	public String saveDoctor(@ModelAttribute("doctorForm") @Valid Doctor doctor, BindingResult result,
+			RedirectAttributes redirectAttributes) {
+		if (doctor.getDoctorId() == 0) {
+			redirectAttributes.addFlashAttribute("message", "Doctor Added Successfully");
+		} else {
+			redirectAttributes.addFlashAttribute("message", "Doctor Updated Successfully");
 		}
-		
-		doctorService.saveDoctor(doctor);
-		
+
+		if (!result.hasErrors()) {
+
+			doctorService.saveDoctor(doctor);
+		}else{
+			return "addDoctor";
+		}
+
 		return "redirect:/admin/doctors";
 	}
-	
+
 	@RequestMapping(value = "/edit/{doctorId}")
-	public String editDoctor(@PathVariable int doctorId, Model model){
-		
+	public String editDoctor(@PathVariable int doctorId, Model model) {
+
 		Doctor doc = doctorService.findById(doctorId);
-		model.addAttribute("doctorForm",doc);
+		model.addAttribute("doctorForm", doc);
 		List<Speciality> specs = new ArrayList<Speciality>();
 		specs.add(new Speciality(-1, "Select Speciality"));
 		specs.addAll(specialityService.getAllSpecialities());
 		model.addAttribute("specialities", specs);
 		return "addDoctor";
 	}
-	
+
 	@RequestMapping(value = "/delete/{doctorId}")
-	public String deleteDoctor(@PathVariable int doctorId, Model model, RedirectAttributes redirectAttributes){
+	public String deleteDoctor(@PathVariable int doctorId, Model model, RedirectAttributes redirectAttributes) {
 		Doctor doctor = doctorService.findById(doctorId);
 		doctorService.deleteDoctor(doctor);
-		redirectAttributes.addFlashAttribute("message","Doctor Deleted Successfully");
+		redirectAttributes.addFlashAttribute("message", "Doctor Deleted Successfully");
 		return "redirect:/admin/doctors";
 	}
 

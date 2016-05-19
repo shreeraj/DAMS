@@ -53,7 +53,7 @@
 					</tr>
 					<tr>
 					<td></td>
-						<td ><a href="" class="btn btn-primary">Make An Appointment</a></td>
+						<td ><a href="javascript:void(0);" onclick="showApp()" class="btn btn-primary">Make An Appointment</a></td>
 					</tr>
 				</table>
 			</div>
@@ -68,7 +68,7 @@
 						<label class="control-label">Choose Date</label>
 						<form:input id ="appPicker" path="appDate" type="text" class="form-control "/>
 						<form:hidden path="docId" value="${doctor.doctorId }"/>
-						<form:hidden path="patientId" value="1"/>
+						<form:hidden path="patientId" value="${patientId }"/>
 					</div>
 					
 					<div class="form-group">
@@ -87,8 +87,29 @@
 </section>
 <!-- end of about section -->
 <style>
+
+.app_form{
+ border: 1px solid #ddd;
+    margin-top: 10px;
+    padding: 10px;
+    display: none;
+}
+
 .app_form label{
 	font-size:22px;
 }
 </style>
+
+<script type="text/javascript">
+	var patientID = "${patientId }";
+
+	function showApp(){
+		if(patientID==""){
+			alert('You Must Be Logged In To Make Appointment');
+		}else{
+			$('.app_form').fadeIn(500);
+		}
+		
+	}
+</script>
 

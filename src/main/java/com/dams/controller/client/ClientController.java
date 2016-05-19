@@ -135,4 +135,10 @@ public class ClientController {
 
 		return obj.toJSONString();
 	}
+	
+	@RequestMapping(value = "/client/logout", method = RequestMethod.GET)
+	public String processLogout(){
+		httpsession.invalidate();
+		return "redirect:/client";
+	}
 }
