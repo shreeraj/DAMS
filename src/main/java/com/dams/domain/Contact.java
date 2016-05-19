@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  *
  * @author raj
@@ -21,7 +23,9 @@ public class Contact{
     @Id
     @GeneratedValue
     private int contactId;
+    
     private String name;
+    
     private String email;
     private String phone;
     private String message;

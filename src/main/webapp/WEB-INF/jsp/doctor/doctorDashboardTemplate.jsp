@@ -20,7 +20,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Doctor</title>
+<title>DAMS|Doctor</title>
 
 <link
 	href="<spring:url value='/resources/admin/bower_components/bootstrap/dist/css/bootstrap.min.css' />"

@@ -12,8 +12,8 @@
 		<!-- /.box-header -->
 		<!-- form start -->
 		<spring:url var="postUrl" value='/admin/doctors/add' />
-		<form:form role="form" modelAttribute="doctorForm"
-			action="${postUrl }">
+		<form:form role="form" modelAttribute="doctorForm" enctype="multipart/form-data" 
+			action="${postUrl }?${_csrf.parameterName}=${_csrf.token}">
 			<div class="box-body">
 				<div class="form-group">
 					<label class="control-label"><spring:message code="addDoctor.form.firsname"/></label>
@@ -45,6 +45,13 @@
 					<form:select path="specialityId" items="${specialities}"
 						class="form-control" itemValue="specialityId"
 						itemLabel="specialityName" />
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Image</label>
+					<div class="input_fields_wrap">
+						<input style="padding:0px;" type="file" name="file" accept="image/*" class="form-control" />
+					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Registration No.</label>

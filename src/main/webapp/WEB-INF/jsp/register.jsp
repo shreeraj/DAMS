@@ -43,20 +43,24 @@
                                 <tr>
                                     <td><label class="control-label">First Name</label></td>
                                     <td><form:input path="firstname" class="form-control" />
+                                    <td><form:errors cssStyle="color:red;" path="firstname" /></td>
 					<form:hidden path="patientId" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><label class="control-label">Last Name:</label></td>
                                     <td><form:input path="lastname" class="form-control" /></td>
+                                    <td><form:errors cssStyle="color:red;" path="lastname" /></td>
                                 </tr>
                                 <tr>
                                     <td><label class="control-label">Username:</label></td>
                                     <td><form:input path="username" class="form-control" /></td>
+                                    <td><form:errors cssStyle="color:red;" path="username" /></td>
                                 </tr>
                                 <tr>
                                     <td><label class="control-label">Password:</label></td>
                                     <td><form:input path="password" class="form-control" type="password" /></td>
+                                    <td><form:errors cssStyle="color:red;" path="password" /></td>
                                 </tr>
                                 <tr>
                                     <td><label class="control-label">Retype Password:</label></td>
@@ -68,16 +72,20 @@
                                 </script>
                                     <td><label class="control-label">DOB:</label></td>
                                     <td><form:input  id="datepickerDOB" path="dob" class="form-control"  /></td>
+                                    <td><form:errors cssStyle="color:red;" path="dob" /></td>
                                 </tr>
                                 <tr>
                                     <td><label class="control-label">Phone:</label></td>
                                     <td><form:input path="phone" class="form-control" /></td>
+                                    <td><form:errors cssStyle="color:red;" path="phone" /></td>
                                 </tr>
                                 <tr>
                                     <td><label class="control-label">Email:</label></td>
-                                    <td><form:errors path="email" cssClass="error" />
+                                    <td>
                                         <form:input id="email" path="email" class="form-control" />
-                                    </td>
+                                               </td>
+                                        <td><form:errors cssStyle="color:red;" path="email" /></td>
+                             
                                 </tr>
                                 
                                 <tr>

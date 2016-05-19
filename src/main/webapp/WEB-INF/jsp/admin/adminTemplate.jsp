@@ -20,7 +20,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>DAMS|ADMIN</title>
 
 <link
 	href="<spring:url value='/resources/admin/bower_components/bootstrap/dist/css/bootstrap.min.css' />"

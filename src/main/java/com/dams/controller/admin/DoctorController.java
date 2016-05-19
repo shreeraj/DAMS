@@ -1,9 +1,13 @@
 package com.dams.controller.admin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -13,12 +17,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dams.domain.Doctor;
 import com.dams.domain.Speciality;
 import com.dams.service.DoctorService;
 import com.dams.service.SpecialityService;
+
 
 @Controller
 @RequestMapping("/admin/doctors")
@@ -53,15 +60,27 @@ public class DoctorController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String saveDoctor(@ModelAttribute("doctorForm") @Valid Doctor doctor, BindingResult result,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes, @RequestParam(value="file", required=false) MultipartFile file, HttpServletRequest request) throws IOException {
 		if (doctor.getDoctorId() == 0) {
 			redirectAttributes.addFlashAttribute("message", "Doctor Added Successfully");
 		} else {
 			redirectAttributes.addFlashAttribute("message", "Doctor Updated Successfully");
 		}
+		//image testing
+		
+		if(!file.isEmpty()){
+			String directoryPath = request.getSession().getServletContext().getRealPath("/")+"resources\\img\\";
+			String absolutePath = directoryPath+new Date().getTime()+".jpg";
+			file.transferTo(new File(absolutePath));
+			
+		}else{
+			System.out.println("khali thiyo");
+		}
+		
+		//end image testing
 
 		if (!result.hasErrors()) {
-
+//			doctor.setImage(file[0].getBytes());
 			doctorService.saveDoctor(doctor);
 		}else{
 			return "addDoctor";

@@ -5,13 +5,18 @@
  */
 package com.dams.domain;
 
+import java.util.Base64;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
  *
@@ -38,6 +43,14 @@ public class Doctor extends Address{
     private String registration;
 
     private String specialityId;
+    
+    private transient CommonsMultipartFile doctorPicture = null;
+    
+    @Lob
+	private byte[] image;
+    
+    @ManyToOne
+    private Speciality speciality;
     
     public Doctor() {
     }
@@ -152,8 +165,49 @@ public class Doctor extends Address{
 	public void setSpecialityId(String specialityId) {
 		this.specialityId = specialityId;
 	}
+	
+	
     
-    
+	public CommonsMultipartFile getDoctorPicture() {
+		return doctorPicture;
+	}
+
+
+
+	public void setDoctorPicture(CommonsMultipartFile doctorPicture) {
+		this.doctorPicture = doctorPicture;
+	}
+
+
+
+	public byte[] getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+
+
+	public Speciality getSpeciality() {
+		return speciality;
+	}
+
+
+
+	public void setSpeciality(Speciality speciality) {
+		this.speciality = speciality;
+	}
+
+
+
+	public String getUrl() { 
+		if(this.image != null && this.image.length > 0) 
+			return "data:image/*;base64," + Base64.getEncoder().encodeToString(this.image);
+		return ""; }
     
     
 }

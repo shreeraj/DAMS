@@ -17,11 +17,13 @@ import com.dams.service.SpecialityService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,9 +75,11 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/client/signup", method = RequestMethod.POST)
-	public String processRegister(@ModelAttribute("patient") Patient patient, RedirectAttributes redirectAttributes) {
+	public String processRegister(@ModelAttribute("patient") @Valid Patient patient, BindingResult result, RedirectAttributes redirectAttributes) {
 
-  
+		if(result.hasErrors()){
+			return "signup";
+		}
 		patientService.savePatient(patient);
 		redirectAttributes.addFlashAttribute("message", "Registered Successfully");
 		return "redirect:/client/doctors";
